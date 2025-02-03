@@ -1,0 +1,96 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Navbar.css';
+import { useState } from 'react';
+import { Button, Container, Form, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
+import { NavLink } from 'react-router-dom';
+import { RiMenu4Line } from "react-icons/ri";
+import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { CiSearch } from "react-icons/ci";
+import Logo from '../Images/logo.png';
+
+export default function NavBar() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const navLinks = [
+    { to: "/yvie-styleit", label: "Yvie StyleIt", ariaLabel: "Yvie StyleIt" },
+    { to: "/yvie-flexit", label: "Yvie FlexIt", ariaLabel: "Yvie FlexIt" },
+    { to: "/yvies-speaking", label: "Yvie’s Speaking", ariaLabel: "Yvie’s Speaking" },
+    { to: "/yvie-writesit", label: "Yvie WritesIt", ariaLabel: "Yvie WritesIt" },
+    { to: "/yvies-cooking", label: "Yvie’s Cooking", ariaLabel: "Yvie’s Cooking" },
+    { to: "/yvie-is-an-engineer", label: "Yvie is an Engineer?", ariaLabel: "Yvie is an Engineer?" },
+    { to: "/yvies-outreach", label: "Yvie’s Outreach", ariaLabel: "Yvie’s Outreach" },
+    { to: "/yvies-event", label: "Yvie’s Event", ariaLabel: "Yvie’s Event" },
+    { to: "/yvie-x-society", label: "Yvie × Society", ariaLabel: "Yvie × Society" },
+    { to: "/yvies-just-living", label: "Yvie’s Just Living", ariaLabel: "Yvie’s Just Living" },
+    { to: "/yvie-does-collaborations", label: "Yvie Does Collaborations", ariaLabel: "Yvie Does Collaborations" },
+  ];
+  
+
+  const renderNavLinks = (onClick = () => {}) =>
+    navLinks.map(({ to, label, ariaLabel }) => (
+      <Nav.Link
+        key={to}
+        as={to.includes("#") ? HashLink : NavLink}
+        to={to}
+        className="navLink inter"
+        onClick={onClick}
+        aria-label={ariaLabel}
+        smooth="true"
+      >
+        {label}
+      </Nav.Link>
+    ));
+
+  return (
+    <Navbar collapseOnSelect expand="lg" className="navbar" as="nav">
+      <Container className="navbarContainer">
+        <div className='topNavbar'>
+            <Navbar.Brand href="/">
+                <img src={Logo} alt="SUA Logo" className="suaLogo" />
+            </Navbar.Brand>
+            <div>
+                <Form className='searchBarLg mont'>
+                    <Form.Control className='inputField' name="query" type="text" placeholder="Search" autoComplete='true'/>
+                    <Button type='submit' className='searchButton'><CiSearch /></Button>
+                </Form>
+            </div>
+            <div >
+                <div className='navSocials mid'>
+                    <FaFacebookF className='navSocial'/>
+                    <FaInstagram className='navSocial'/>
+                    <FaXTwitter className='navSocial'/>
+                </div>
+            </div>
+        </div>
+        <div className='bottomNavbar mont'>
+            {/* Desktop Links */}
+            <div className="navLinks">{renderNavLinks()}</div>
+            <div>
+                <Form className='searchBarSm mont'>
+                    <Form.Control className='inputField' name="query" type="text" placeholder="Search" autoComplete='true'/>
+                    <Button type='submit' className='searchButton'><CiSearch /></Button>
+                </Form>
+            </div>
+            {/* Mobile Menu Toggle */}
+            <RiMenu4Line onClick={handleShow} className="navbarToggle"/>
+        </div>
+      </Container>
+      {/* Mobile Offcanvas Menu */}
+      <Offcanvas show={show} onHide={handleClose} placement="end" className="navbarMenu">
+        <Offcanvas.Header closeButton />
+        <Offcanvas.Body className="d-flex flex-column align-items-center">
+          {renderNavLinks(handleClose)}
+          <div className='d-flex flex-row navSocials'>
+            <FaFacebookF className='navSocial'/>
+            <FaInstagram className='navSocial'/>
+            <FaXTwitter className='navSocial'/>
+          </div>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Navbar>
+  );
+}

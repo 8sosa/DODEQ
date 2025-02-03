@@ -1,0 +1,163 @@
+.navbarContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 0 2rem;
+    max-width: 100%;
+}
+
+.navbarToggle {
+    display: none;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+}
+
+.navLink {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.navLink:hover, .navLink.active {
+    color: #A76399;
+}
+
+.navSocials {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+
+.navSocial:hover {
+    color: #A76399;
+}
+
+.topNavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.bottomNavbar {
+    padding-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputField {
+    border-radius: 1.5rem 0.25rem 0.25rem 1.5rem;
+    background-color: #E9E9E9;
+    border: 1px solid #d3d3d3;
+    width: 30rem;
+    max-width: 100%;
+}
+
+.searchButton {
+    border-radius: 0.25rem 1.5rem 1.5rem 0.25rem;
+    background-color: #E9E9E9;
+    border: 1px solid #d3d3d3;
+    color: #3a3a3a;
+}
+
+.searchButton:hover {
+    background-color: #A76399;
+    color: #E9E9E9;
+    border-color: black;
+}
+.searchBarSm {
+    display: none;
+}
+.searchBarLg {
+    display: flex;
+}
+.searchBarLg, .searchBarSm {
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+.offcanvas-body {
+    gap: 1rem;
+}
+/* -------------------------------- */
+/* Responsive Media Queries       */
+/* -------------------------------- */
+
+/* For screens 768px (48rem) and below */
+@media (max-width: 48rem) {
+    .navbarToggle {
+        display: flex;
+        font-size: 2rem; /* Increase icon size if needed */
+        cursor: pointer;
+    }
+    .navLinks {
+        display: none;
+    }
+}
+
+/* For tablets and smaller devices */
+@media (max-width: 768px) {
+    .navbarContainer {
+        padding: 1.5rem;
+        margin: 0 1.5rem;
+    }
+    .topNavbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .searchBarLg {
+        display: none;
+    }
+    .bottomNavbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .suaLogo {
+        width: 100%;
+    }
+    .inputField {
+        width: 100%;  /* Make the search field full width */
+    }
+    .navSocials {
+        margin-left: 0;
+        justify-content: center;
+    }
+}
+
+/* For phones (576px and below) */
+@media (max-width: 576px) {
+    .navbarContainer {
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+    .topNavbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 0rem;
+    }
+    .inputField {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .searchButton {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .navSocials {
+        margin-top: 5rem;
+        width: 100%;
+        justify-content: space-evenly;
+        font-size: 3rem;
+    }
+}

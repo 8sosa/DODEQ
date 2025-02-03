@@ -1,0 +1,279 @@
+/* Global styles for team grid and team items */
+.team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns on larger screens */
+    gap: 1rem; /* Space between items */
+    margin: 5rem 0;
+    width: 100%;
+}
+.team-item {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.team-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Home Hero Section */
+.homeHero {
+    position: relative;
+    width: 100%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../Images/ph.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.homeHero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1; /* Overlay */
+    opacity: 0.6;
+}
+.homeHeroContainer {
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    color: #fff;
+    margin: 7.5rem 0;
+    z-index: 2;
+}
+.homeHero h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+.homeHero p {
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+}
+.homeHero button {
+    background-color: #f0f0f0;
+    border: 3px solid #000;
+    border-radius: 1.5625rem;
+    font-size: 1.25rem;
+    padding: 0.5rem 2.5rem;
+}
+.heroButtonPair {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+}
+
+/* Home About Section */
+.homeAbout {
+    position: relative;
+    width: 100%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../Images/ph.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.homeAbout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1;
+    opacity: 0.6;
+}
+.homeAboutContainer {
+    min-height: fit-content;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+    color: #fff;
+    margin: 7.5rem 0;
+    z-index: 2;
+}
+.homeAboutContainer h1 {
+    color: #000;
+    font-size: 4rem;
+    align-self: flex-start;
+}
+.homeAboutContainer p {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #000;
+}
+.homeAboutContainer button {
+    background-color: #f0f0f0;
+    border: 3px solid #000;
+    border-radius: 1.5625rem;
+    font-size: 1.25rem;
+    padding: 0.5rem 2.5rem;
+}
+
+/* Passions Section */
+.passions {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.passionsContainer {
+    min-height: fit-content;
+    max-width: 100%;
+    padding-top: 5rem;
+}
+.passionsContainer h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    text-align: end;
+    margin-bottom: 5rem;
+}
+
+/* Home Events Section */
+.homeEvents {
+    background-color: #000;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.homeEventsContainer {
+    min-height: fit-content;
+    max-width: 100%;
+    padding-top: 5rem;
+}
+.homeEventsContainer h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+/* ----------------------------------- */
+/* Responsive Media Queries */
+/* ----------------------------------- */
+
+/* For devices with a max-width of 992px (tablets and smaller laptops) */
+@media (max-width: 992px) {
+    .homeHero {
+        padding: 3rem;
+    }
+    .homeHero h1 {
+        font-size: 3rem;
+    }
+    .homeHero p {
+        font-size: 1.5rem;
+    }
+    .heroButtonPair {
+        gap: 5rem;
+    }
+    .homeAbout {
+        padding: 3rem;
+    }
+    .homeAboutContainer h1 {
+        font-size: 3rem;
+    }
+    .homeAboutContainer p {
+        font-size: 2rem;
+    }
+    .passionsContainer h1,
+    .homeEventsContainer h1 {
+        font-size: 3rem;
+    }
+    .team {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+}
+
+/* For devices with a max-width of 768px (landscape phones and small tablets) */
+@media (max-width: 768px) {
+    .heroButtonPair {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .homeHero h1 {
+        font-size: 2.5rem;
+    }
+    .homeHero p {
+        font-size: 1.25rem;
+    }
+    .homeAboutContainer h1 {
+        font-size: 2.5rem;
+    }
+    .homeAboutContainer p {
+        font-size: 1.75rem;
+    }
+    .passionsContainer h1,
+    .homeEventsContainer h1 {
+        font-size: 2.5rem;
+    }
+    .team {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For devices with a max-width of 576px (phones) */
+@media (max-width: 576px) {
+    .homeHero {
+        padding: 2rem;
+    }
+    .homeHeroContainer {
+        margin: 3rem 0;
+    }
+    .homeHero h1 {
+        font-size: 2rem;
+    }
+    .homeHero p {
+        font-size: 1rem;
+    }
+    .heroButtonPair {
+        gap: 1.5rem;
+    }
+    .homeAbout {
+        padding: 2rem;
+    }
+    .homeAboutContainer {
+        margin: 3rem 0;
+        padding: 0 1rem;
+    }
+    .homeAboutContainer h1 {
+        font-size: 2rem;
+    }
+    .homeAboutContainer p {
+        font-size: 1.5rem;
+    }
+    .passions,
+    .homeEvents {
+        padding: 2rem;
+    }
+    .passionsContainer,
+    .homeEventsContainer {
+        padding-top: 2rem;
+    }
+    .passionsContainer h1,
+    .homeEventsContainer h1 {
+        font-size: 2rem;
+    }
+    .team {
+        grid-template-columns: 1fr; /* Stack items on very small screens */
+    }
+}

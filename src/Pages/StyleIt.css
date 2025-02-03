@@ -1,0 +1,83 @@
+/* --- Original Styles --- */
+.p1x1 {
+    width: 18.75rem; /* 300px */
+}
+.p2x1 {
+    width: 18.75rem; /* 300px */
+    height: 28.125rem; /* 450px */
+}
+.p1x2 {
+    width: 28.125rem; /* 450px */
+    height: 18.75rem; /* 300px */
+}
+.p1x1, 
+.p1x2, 
+.p2x1 {
+    border: 2px solid #000;
+    border-radius: 25px;
+    box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.25);
+}
+
+.collectionDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.collectionDetail h1 {
+    font-size: 3.75rem; /* 60px */
+    font-weight: 500;
+    margin-bottom: 3.125rem; /* 50px */
+}
+.collectionDetail span {
+    font-size: 2rem; /* 32px */
+    font-weight: 300;
+    letter-spacing: 1rem; /* 16px */
+}
+
+/* --- Responsive Adjustments --- */
+
+/* For devices with a max-width of 768px (tablets and smaller laptops) */
+@media (max-width: 768px) {
+    .p1x1 {
+        width: 15rem; /* 240px */
+    }
+    .p2x1 {
+        width: 15rem; /* 240px */
+        height: 22rem; /* 352px */
+    }
+    .p1x2 {
+        width: 22rem; /* 352px */
+        height: 15rem; /* 240px */
+    }
+    .collectionDetail h1 {
+        font-size: 3rem; /* 48px */
+        margin-bottom: 2.5rem; /* 40px */
+    }
+    .collectionDetail span {
+        font-size: 1.7rem; /* ~27px */
+        letter-spacing: 0.8rem; /* ~13px */
+    }
+}
+
+/* For devices with a max-width of 576px (phones) */
+@media (max-width: 576px) {
+    .p1x1 {
+        width: 12rem; /* 192px */
+    }
+    .p2x1 {
+        width: 12rem; /* 192px */
+        height: 18rem; /* 288px */
+    }
+    .p1x2 {
+        width: 18rem; /* 288px */
+        height: 12rem; /* 192px */
+    }
+    .collectionDetail h1 {
+        font-size: 2rem; /* 32px */
+        margin-bottom: 1.5rem; /* 24px */
+    }
+    .collectionDetail span {
+        font-size: 1.2rem; /* ~19px */
+        letter-spacing: 0.5rem; /* 8px */
+    }
+}

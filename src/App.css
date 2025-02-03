@@ -1,0 +1,5 @@
+@media (max-width: 48rem) {
+  .mid {
+      display: none !important;
+  }
+}
