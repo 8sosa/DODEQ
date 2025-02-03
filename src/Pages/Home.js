@@ -15,7 +15,7 @@ export default function Home () {
                 <p className="mont">Join me on a journey where passion meets creativity. From fashion to dance, cooking to collaborations, let’s explore what it means to truly live.</p>
                 <div className="heroButtonPair mont">
                     <button>Explore My World</button>
-                    <button><a href="/shop">Shop YvieStyleIt</a></button>
+                    <button><a href="/shop" className="link">Shop YvieStyleIt</a></button>
                 </div>
             </Container>
         </div>

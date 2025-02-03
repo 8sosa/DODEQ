@@ -14,7 +14,7 @@ export default function StyleIt () {
                 <h1 className="kavoon">Fashion That Speaks, Style That Inspires.</h1>
                 <p className="mont">Welcome to YvieStyleIt, where creativity meets individuality. Discover collections crafted to empower and inspire every step of your journey.</p>
                 <div className="heroButtonPair mont">
-                    <button><a href="/shop">Shop Now</a></button>
+                    <button><a href="/shop" className="link">Shop Now</a></button>
                     <button>Explore Collections</button>
                 </div>
             </Container>
