@@ -160,4 +160,7 @@
         justify-content: space-evenly;
         font-size: 3rem;
     }
+    .searchBarSm {
+        display: flex;
+    }
 }
