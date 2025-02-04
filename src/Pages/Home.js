@@ -11,12 +11,12 @@ export default function Home () {
     <>
         <div className="homeHero">
             <Container className="homeHeroContainer gap-5">
-                <h1 className="kavoon">Living Boldly, Creating Fearlessly, Inspiring Every Step</h1>
-                <p className="mont">Join me on a journey where passion meets creativity. From fashion to dance, cooking to collaborations, let’s explore what it means to truly live.</p>
-                <div className="heroButtonPair mont">
+                <h1 className="kavoon">Yvie DODEQ</h1>
+                <p className="mont">Live. Love. Inspire</p>
+                {/* <div className="heroButtonPair mont">
                     <button>Explore My World</button>
                     <button><a href="/shop" className="link">Shop YvieStyleIt</a></button>
-                </div>
+                </div> */}
             </Container>
         </div>
         <div className="homeAbout">

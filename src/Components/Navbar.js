@@ -16,10 +16,10 @@ export default function NavBar() {
   const handleShow = () => setShow(true);
 
   const navLinks = [
-    { to: "/yvie-styleit", label: "Yvie StyleIt", ariaLabel: "Yvie StyleIt" },
-    { to: "/yvie-flexit", label: "Yvie FlexIt", ariaLabel: "Yvie FlexIt" },
+    { to: "/yvie-styleit", label: "Yvie Style It", ariaLabel: "Yvie Style It" },
+    { to: "/yvie-flexit", label: "Yvie Flex It", ariaLabel: "Yvie Flex It" },
     { to: "/yvies-speaking", label: "Yvie’s Speaking", ariaLabel: "Yvie’s Speaking" },
-    { to: "/yvie-writesit", label: "Yvie WritesIt", ariaLabel: "Yvie WritesIt" },
+    { to: "/yvie-writesit", label: "Yvie Writes It", ariaLabel: "Yvie Writes It" },
     { to: "/yvies-cooking", label: "Yvie’s Cooking", ariaLabel: "Yvie’s Cooking" },
     { to: "/yvie-is-an-engineer", label: "Yvie is an Engineer?", ariaLabel: "Yvie is an Engineer?" },
     { to: "/yvies-outreach", label: "Yvie’s Outreach", ariaLabel: "Yvie’s Outreach" },
