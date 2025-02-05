@@ -32,23 +32,28 @@ export default function StyleIt () {
                     <h1>Explore the Collections</h1>
                     {
                         Collections.map((collection, index) => (
-                            <Row className="Collection mb-5 flex-column flex-md-row" key={index}>
-                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-3 order-md-1">
-                                    <img src={require(`../Collection/${collection.p1x1}`)} alt={collection.p1x1Alt} className="p1x1" />
-                                    <img src={require(`../Collection/${collection.p1x2}`)} alt={collection.p1x2Alt} className="p2x1" />
-                                </Col>
-
-                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-1 order-md-2">
+                            <Row className="Collection mb-5" key={index}>
                                     <div className="collectionDetail altMont">
                                         <h1>{collection.title}</h1>
                                         <span>{collection.season}</span>
                                     </div>
+                                <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
+                                    <img src={require(`../Collection/${collection.p1x1}`)} alt={collection.p1x1Alt} className="p1x1" />
+                                </Col>
+                                <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
+                                    <img src={require(`../Collection/${collection.p1x2}`)} alt={collection.p1x2Alt} className="p2x1" />
+                                </Col>
+                                <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
                                     <img src={require(`../Collection/${collection.p2x1}`)} alt={collection.p2x1Alt} className="p1x2" />
+                                </Col>
+                                <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
                                     <img src={require(`../Collection/${collection.p2x2}`)} alt={collection.p2x2Alt} className="p1x2" />
                                 </Col>
-
-                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-2 order-md-3">
+                                <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
                                     <img src={require(`../Collection/${collection.p3x1}`)} alt={collection.p3x1Alt} className="p2x1" />
+                                </Col>
+
+                                <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
                                     <img src={require(`../Collection/${collection.p3x3}`)} alt={collection.p3x3Alt} className="p1x1" />
                                 </Col>
                             </Row>
