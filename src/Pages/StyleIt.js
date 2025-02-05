@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import './StyleIt.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from 'react-bootstrap';
@@ -7,33 +7,6 @@ import Collections from "../Collection/collection.json"
 
 
 export default function StyleIt () {
-    const [loadedCollections, setLoadedCollections] = useState([]);
-
-    useEffect(() => {
-        // Preload images before rendering each collection
-        const preloadImages = async () => {
-            const promises = Collections.map((collection) => {
-                return new Promise((resolve) => {
-                    [
-                        collection.p1x1, collection.p1x2,
-                        collection.p2x1, collection.p2x2,
-                        collection.p3x1, collection.p3x3
-                    ].forEach((img) => {
-                        const image = new Image();
-                        image.src = require(`../Collection/${img}`);
-                        image.onload = resolve;
-                        image.onerror = resolve; // Resolve even if image fails
-                    });
-                });
-            });
-        
-            await Promise.all(promises);
-            setLoadedCollections(Collections);
-        };
-        
-
-        preloadImages();
-    }, []);
 
   return (
     <>
@@ -57,10 +30,8 @@ export default function StyleIt () {
         <div className="passions">
                 <Container className="passionsContainer altMont gap-5 d-flex flex-column">
                     <h1>Explore the Collections</h1>
-                    {loadedCollections.length === 0 ? (
-                        <div className="loading">Loading Collections...</div>
-                    ) : (
-                        loadedCollections.map((collection, index) => (
+                    {
+                        Collections.map((collection, index) => (
                             <Row className="Collection mb-5 flex-column flex-md-row" key={index}>
                                 <Col md={4} className="d-flex flex-column align-items-center gap-5 order-3 order-md-1">
                                     <img src={require(`../Collection/${collection.p1x1}`)} alt={collection.p1x1Alt} className="p1x1" />
@@ -82,7 +53,7 @@ export default function StyleIt () {
                                 </Col>
                             </Row>
                         ))
-                    )}
+                    }
                 </Container>
             </div>
         <div className="homeEvents">
