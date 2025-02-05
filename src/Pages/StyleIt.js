@@ -62,12 +62,12 @@ export default function StyleIt () {
                     ) : (
                         loadedCollections.map((collection, index) => (
                             <Row className="Collection mb-5 flex-column flex-md-row" key={index}>
-                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-1 order-md-1">
+                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-3 order-md-1">
                                     <img src={require(`../Collection/${collection.p1x1}`)} alt={collection.p1x1Alt} className="p1x1" />
                                     <img src={require(`../Collection/${collection.p1x2}`)} alt={collection.p1x2Alt} className="p2x1" />
                                 </Col>
 
-                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-3 order-md-2">
+                                <Col md={4} className="d-flex flex-column align-items-center gap-5 order-1 order-md-2">
                                     <div className="collectionDetail altMont">
                                         <h1>{collection.title}</h1>
                                         <span>{collection.season}</span>
