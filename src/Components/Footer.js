@@ -25,7 +25,7 @@ export default function Footer() {
       <Container className='footerBody' id='footer'>
         <Row>
           {/* Left Section */}
-          <Col md={6}>
+          <Col md={4}>
             <div className="footer-left">
                 <img src={Logo} alt="She Unites Business Logo" className='footerLogo'/>
                 <p className="kavoon">"Living boldly, creating fearlessly."</p>
@@ -40,7 +40,7 @@ export default function Footer() {
           </Col>
 
           {/* Middle Section */}
-          <Col md={6} className="footer-middle">
+          <Col md={4} className="footer-middle">
             <h3 className="ffooterLinkHeader altMont">Explore</h3>
             <ul className="footer-list">
               {navLinks.map(({ to, label }) => (
@@ -52,7 +52,7 @@ export default function Footer() {
           </Col>
 
           {/* Right Section */}
-          <Col md={6} className="footer-right">
+          <Col md={4} className="footer-right">
             <h3 className="ffooterLinkHeader">Stay In The Loop</h3>
             <p className="footer-text">Get updates on events, new collections, and more.</p>
             <div className="footer-subscribe">

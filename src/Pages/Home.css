@@ -22,17 +22,25 @@
 }
 
 /* Home Hero Section */
-.homeHero {
+.homeHero, .styleItHero {
     position: relative;
     width: 100%;
+    min-height: 45rem;
     padding: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('../Images/ph.png');
+    justify-content: center;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.homeHero {
+    background-image: url('../Images/home.jpg');
+}
+.styleItHero {
+    background-image: url('../Collection/sf/1x2.jpg');
+
 }
 .homeHero::before {
     content: "";
@@ -41,7 +49,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: #c8a2c8;
     z-index: 1; /* Overlay */
     opacity: 0.6;
 }
@@ -58,11 +66,14 @@
 .homeHero h1 {
     font-size: 6rem;
     text-align: center;
+    color: #8000ff;
+    text-shadow: 2px 5px 15px #000;
 }
 .homeHero p {
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 3rem;
+    font-weight: 400;
     text-align: center;
+    color: #ffd700;
 }
 .homeHero button {
     background-color: #f0f0f0;
@@ -78,17 +89,22 @@
 }
 
 /* Home About Section */
-.homeAbout {
+.homeAbout, .styleItAbout {
     position: relative;
     width: 100%;
     padding: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('../Images/ph.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.homeAbout {
+    background-image: url('../Images/habout.jpg');
+}
+.styleItAbout {
+    background-image: url('../Images/bg.png');
 }
 .homeAbout::before {
     content: "";
@@ -99,7 +115,7 @@
     height: 100%;
     background-color: #fff;
     z-index: 1;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 .homeAboutContainer {
     min-height: fit-content;
@@ -118,7 +134,7 @@
     align-self: flex-start;
 }
 .homeAboutContainer p {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 300;
     color: #000;
 }
@@ -129,7 +145,49 @@
     font-size: 1.25rem;
     padding: 0.5rem 2.5rem;
 }
-
+.styleItHeroText {
+    font-size: 2rem !important;
+    color: #000 !important;
+}
+.styleIt {
+    width: 100%;
+    min-height: 50rem;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../Collection/sf/1x2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.styleItCol {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.styleItCol h1 {
+    font-size: 5rem;
+}
+.styleItCol p {
+    font-size: 2rem;
+}
+.styleItCol button {
+    border: 4px solid #000;
+    border-radius: 1rem;
+    background-color: transparent;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    box-shadow: 0px 5px 5px #000;
+}
+.styleItImg {
+    max-width: 50%;
+    border-radius: 2rem;
+}
 /* Passions Section */
 .passions {
     padding: 5rem;
@@ -236,6 +294,9 @@
     .homeHero {
         padding: 2rem;
     }
+    .homeHero , .styleItHero {
+        min-height: 15rem;
+    }
     .homeHeroContainer {
         margin: 3rem 0;
     }
@@ -276,5 +337,24 @@
     }
     .team {
         grid-template-columns: 1fr; /* Stack items on very small screens */
+    }
+    .styleItCol h1 {
+        font-size: 2rem;
+    }
+    .styleItCol p {
+        font-size: 1rem;
+    }
+    .styleItCol button {
+        border: 2px solid #000;
+        border-radius: .5rem;
+        font-size: 1rem;
+        padding: 1rem 3rem;
+    }.styleItImg {
+        width: 100%;
+    }
+    .styleItContainerRow {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
     }
 }
