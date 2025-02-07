@@ -16,7 +16,7 @@ export default function NavBar() {
   const handleShow = () => setShow(true);
 
   const navLinks = [
-    { to: "/yvie-styleit", label: "Yvie Style It", ariaLabel: "Yvie Style It" },
+    { to: "/yvie-style-it", label: "Yvie Style It", ariaLabel: "Yvie Style It" },
     // { to: "/yvie-flexit", label: "Yvie Flex It", ariaLabel: "Yvie Flex It" },
     // { to: "/yvies-speaking", label: "Yvie’s Speaking", ariaLabel: "Yvie’s Speaking" },
     // { to: "/yvie-writesit", label: "Yvie Writes It", ariaLabel: "Yvie Writes It" },

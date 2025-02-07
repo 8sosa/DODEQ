@@ -7,7 +7,7 @@ import './Footer.css';
 
 export default function Footer() {
     const navLinks = [
-        { to: "/yvie-styleit", label: "Yvie Style It" },
+        { to: "/yvie-style-it", label: "Yvie Style It" },
         // { to: "/yvie-flexit", label: "Yvie Flex It" },
         // { to: "/yvie-writesit", label: "Yvie Writes It" },
         // { to: "/yvies-speaking", label: "Yvie’s Speaking" },
