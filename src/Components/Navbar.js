@@ -50,7 +50,7 @@ export default function NavBar() {
       <Container className="navbarContainer">
         <div className='topNavbar'>
             <Navbar.Brand href="/">
-                <img src={Logo} alt="SUA Logo" className="suaLogo" />
+                <img src={Logo} alt="SUA Logo" className="footerLogo" />
             </Navbar.Brand>
             <div>
                 <Form className='searchBarLg mont'>
