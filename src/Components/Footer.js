@@ -8,16 +8,16 @@ import './Footer.css';
 export default function Footer() {
     const navLinks = [
         { to: "/yvie-styleit", label: "Yvie Style It" },
-        { to: "/yvie-flexit", label: "Yvie Flex It" },
-        { to: "/yvie-writesit", label: "Yvie Writes It" },
-        { to: "/yvies-speaking", label: "Yvie’s Speaking" },
-        { to: "/yvies-cooking", label: "Yvie’s Cooking" },
-        { to: "/yvies-outreach", label: "Yvie’s Outreach" },
-        { to: "/yvies-event", label: "Yvie’s Event" },
-        { to: "/yvie-does-collaborations", label: "Yvie Does Collaborations" },
-        { to: "/yvie-x-society", label: "Yvie × Society" },
-        { to: "/yvies-just-living", label: "Yvie’s Just Living" },
-        { to: "/about-faq", label: "About & FAQ" },
+        // { to: "/yvie-flexit", label: "Yvie Flex It" },
+        // { to: "/yvie-writesit", label: "Yvie Writes It" },
+        // { to: "/yvies-speaking", label: "Yvie’s Speaking" },
+        // { to: "/yvies-cooking", label: "Yvie’s Cooking" },
+        // { to: "/yvies-outreach", label: "Yvie’s Outreach" },
+        // { to: "/yvies-event", label: "Yvie’s Event" },
+        // { to: "/yvie-does-collaborations", label: "Yvie Does Collaborations" },
+        // { to: "/yvie-x-society", label: "Yvie × Society" },
+        // { to: "/yvies-just-living", label: "Yvie’s Just Living" },
+        // { to: "/about-faq", label: "About & FAQ" },
     ];
 
   return (

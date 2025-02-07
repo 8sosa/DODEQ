@@ -14,7 +14,7 @@ export default function SuaRoutes() {
                     <div className="content">
                         <Routes>
                             <Route path='/' element={<Home />} exact/>
-                            <Route path='/yvie-styleit' element={<StyleIt />} exact/>
+                            <Route path='/yvie-style-it' element={<StyleIt />} exact/>
                             <Route path='/shop' element={<Shop />} exact/>
                         </Routes>
                     </div>
