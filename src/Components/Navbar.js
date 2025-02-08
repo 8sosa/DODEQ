@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { RiMenu4Line } from "react-icons/ri";
 import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
-import Logo from '../Images/logo.jpeg';
+import Logo from '../Images/logo.png';
 
 export default function NavBar() {
   const [show, setShow] = useState(false);

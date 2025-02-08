@@ -19,6 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "optimize-images": "npx imagemin 'build/static/media/*.{jpg,png,svg}' --out-dir=build/static/media",
+    "build:optimized": "npm run build && npm run optimize-images",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "imagemin-cli": "^8.0.0"
   }
 }

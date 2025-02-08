@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Col, Row } from 'react-bootstrap';
 import { FaLinkedin, FaFacebookF, FaInstagram } from "react-icons/fa";
-import Logo from '../Images/logo.jpeg';
+import Logo from '../Images/logo.png';
 import './Footer.css';
 
 export default function Footer() {
