@@ -19,13 +19,13 @@ export default function NavBar() {
     { to: "/yvie-style-it", label: "Yvie Style It", ariaLabel: "Yvie Style It" },
     // { to: "/yvie-flexit", label: "Yvie Flex It", ariaLabel: "Yvie Flex It" },
     // { to: "/yvies-speaking", label: "Yvie’s Speaking", ariaLabel: "Yvie’s Speaking" },
-    // { to: "/yvie-writesit", label: "Yvie Writes It", ariaLabel: "Yvie Writes It" },
+    { to: "/yvie-write-it", label: "Yvie Writes It", ariaLabel: "Yvie Writes It" },
     // { to: "/yvies-cooking", label: "Yvie’s Cooking", ariaLabel: "Yvie’s Cooking" },
-    // { to: "/yvie-is-an-engineer", label: "Yvie is an Engineer?", ariaLabel: "Yvie is an Engineer?" },
+    { to: "/yvie-is-an-engineer", label: "Yvie is an Engineer?", ariaLabel: "Yvie is an Engineer?" },
     // { to: "/yvies-outreach", label: "Yvie’s Outreach", ariaLabel: "Yvie’s Outreach" },
     // { to: "/yvies-event", label: "Yvie’s Event", ariaLabel: "Yvie’s Event" },
     // { to: "/yvie-x-society", label: "Yvie × Society", ariaLabel: "Yvie × Society" },
-    // { to: "/yvies-just-living", label: "Yvie’s Just Living", ariaLabel: "Yvie’s Just Living" },
+    { to: "/yvies-just-living", label: "Yvie’s Just Living", ariaLabel: "Yvie’s Just Living" },
     // { to: "/yvie-does-collaborations", label: "Yvie Does Collaborations", ariaLabel: "Yvie Does Collaborations" },
   ];
   
@@ -46,11 +46,11 @@ export default function NavBar() {
     ));
 
   return (
-    <Navbar collapseOnSelect expand="lg" className="navbar" as="nav">
+    <Navbar collapseOnSelect expand="lg" className="navbar glass" as="nav">
       <Container className="navbarContainer">
         <div className='topNavbar'>
             <Navbar.Brand href="/">
-                <img src={Logo} alt="SUA Logo" className="footerLogo" />
+                <img src={Logo} alt="SUA Logo" className="logo" />
             </Navbar.Brand>
             <div>
                 <Form className='searchBarLg mont'>

@@ -23,7 +23,10 @@
     font-weight: 300;
     letter-spacing: 1rem; /* 16px */
 }
-
+.styleItTabs {
+    width: 100%;
+    padding: 7.5rem 5rem;
+}
 /* --- Responsive Adjustments --- */
 
 /* For devices with a max-width of 768px (tablets and smaller laptops) */
