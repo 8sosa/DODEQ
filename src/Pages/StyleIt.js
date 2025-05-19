@@ -3,6 +3,7 @@ import './StyleIt.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import Carousel from "../Components/Carousel";
+import Placeholder from "../Images/ph.png"
 import Collections from "../Collection/collection.json"
 
 
@@ -27,11 +28,24 @@ export default function StyleIt () {
         <div className="styleItAbout homeAbout">
             <Container className="homeAboutContainer altMont">
                 <h1>Create Your Own Style</h1>
-                <p>Designing is subjective. You can design anywhere, anytime, out of anything. I love to create, I love sewing, and I don’t always have the tools and venue I need to bring out my vision. I’d sit on the floor of my room, do the illustration art to guide me, get pieces of materials I have, improvise anything I don’t have, and create whatever I’m inspired to create. Whenever I can’t sew at home, I go to a neighboring tailor and ask to use their machine, and whenever I don’t understand the process to bring out my vision, I go on YouTube for help and further tutorials. Nothing stops my process.</p>
-                <p>Be inspired, don’t let anything stop you from creating. You can create your own style anywhere, no matter the hindrance. Remember, designing is subjective, and creativity bears no limits.</p>
+                <Row className="homeAboutText">
+                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutImgCol">
+                        <img src={Placeholder} alt="homeAbout" className="homeAboutImg" />
+                    </Col>
+                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutTextCol">
+                        <p>Designing is subjective. You can design anywhere, anytime, out of anything. I love to create, I love sewing, and I don’t always have the tools and venue I need to bring out my vision. I’d sit on the floor of my room, do the illustration art to guide me, get pieces of materials I have, improvise anything I don’t have, and create whatever I’m inspired to create. Whenever I can’t sew at home, I go to a neighboring tailor and ask to use their machine, and whenever I don’t understand the process to bring out my vision, I go on YouTube for help and further tutorials. Nothing stops my process.</p>
+                    </Col>
+                </Row>
+                <Row className="homeAboutText">
+                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutTextCol">
+                        <p>Be inspired, don’t let anything stop you from creating. You can create your own style anywhere, no matter the hindrance. Remember, designing is subjective, and creativity bears no limits.</p>
+                    </Col>
+                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutImgCol">
+                        <img src={Placeholder} alt="homeAbout" className="homeAboutImg" />
+                    </Col>
+                </Row>
             </Container>
         </div>
-        {/* Collections Section */}
 
         <div className="passions">
             <Container className="passionsContainer altMont gap-5 d-flex flex-column" id="Collections">
@@ -58,7 +72,6 @@ export default function StyleIt () {
                             <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
                                 <img src={require(`../Collection/${collection.p3x1}`)} alt={collection.p3x1Alt} className="p2x1" />
                             </Col>
-
                             <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
                                 <img src={require(`../Collection/${collection.p3x3}`)} alt={collection.p3x3Alt} className="p1x1" />
                             </Col>

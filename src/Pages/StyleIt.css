@@ -27,6 +27,19 @@
     width: 100%;
     padding: 7.5rem 5rem;
 }
+.homeAboutText {
+    align-items: center;
+}
+.homeAboutTextCol {
+    padding: .2rem 2rem;
+}
+.homeAboutImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: .5rem solid #544894;
+    border-radius: 1.5rem;
+}
 /* --- Responsive Adjustments --- */
 
 /* For devices with a max-width of 768px (tablets and smaller laptops) */

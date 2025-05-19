@@ -132,7 +132,7 @@
 .homeAboutContainer h1 {
     color: #000;
     font-size: 4rem;
-    align-self: flex-start;
+    align-self: center;
 }
 .homeAboutContainer p {
     font-size: 2rem;
