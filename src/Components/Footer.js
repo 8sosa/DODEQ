@@ -33,8 +33,8 @@ export default function Footer() {
             <hr className="footer-divider"/>
             <div className="d-flex flex-column align-items-center">
                 <h3 className="ffooterLinkHeader altMont mb-3">Get in Touch</h3>
-                <p className='mont'>Email: <a href="mailto:contact@yvie.com" className="footer-link">contact@yvie.com</a></p>
-                <p className='mont'>Phone: (447) 999 7898</p>
+                <p className='mont'>Email: <a href="mailto:admin@yviedodeq.com" className="footer-link">admin@yviedodeq.com</a></p>
+                {/* <p className='mont'>Phone: (447) 999 7898</p> */}
                 <button className="footer-button mt-3">Contact Me</button>
             </div>
           </Col>
@@ -62,9 +62,9 @@ export default function Footer() {
             <hr className="footer-divider"/>
             <h3 className="ffooterLinkHeader altMont">Connect With Me:</h3>
             <div className="footer-socials">
-              <a href="#footer" className="footer-icon"><FaLinkedin /></a>
+              <a href="https://www.linkedin.com/company/the-yvie-dodeq-ltd/" className="footer-icon"><FaLinkedin /></a>
               <a href="#footer" className="footer-icon"><FaFacebookF /></a>
-              <a href="#footer" className="footer-icon"><FaInstagram /></a>
+              <a href="https://www.instagram.com/yviestyleit/" className="footer-icon"><FaInstagram /></a>
             </div>
           </Col>
         </Row>

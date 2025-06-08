@@ -2,6 +2,7 @@
     {
         "title": "Yvie is Venus",
         "season": "WINTER 2024",
+        "folder": "venus", 
         "p1x1": "venus/8.JPEG",
         "p1x1Alt": "venus 1",
         "p1x2": "venus/10.JPEG",
@@ -18,6 +19,7 @@
     {
         "title": "Yvie’s Collective Shoot @ Richie's Art Gallery",
         "season": "SUMMER 2024",
+        "folder": "sf", 
         "p1x1": "sf/1x1.jpg",
         "p1x1Alt": "sf 1",
         "p1x2": "sf/1x2.jpg",
@@ -34,6 +36,7 @@
     {
         "title": "Yvie’s Unfinished",
         "season": "SPRING 2024",
+        "folder": "unfinished", 
         "p1x1": "unfinished/1x1.jpg",
         "p1x1Alt": "unfinished 1",
         "p1x2": "unfinished/1x2.jpg",
@@ -50,6 +53,7 @@
     {
         "title": "Yvie's Styling Experience: Retro fashion",
         "season": "AUTUMN 2020",
+        "folder": "retro", 
         "p1x1": "retro/1x1.jpg",
         "p1x1Alt": "retro 1",
         "p1x2": "retro/1x2.jpg",
@@ -66,6 +70,7 @@
     {
         "title": "Yvie's fashion editorial: Street fashion collection",
         "season": "WINTER 2020",
+        "folder": "ankara", 
         "p1x1": "ankara/1x1.jpg",
         "p1x1Alt": "ankara 1",
         "p1x2": "ankara/1x2.jpg",
@@ -78,5 +83,22 @@
         "p3x1Alt": "ankara 5",
         "p3x3": "ankara/3x3.jpg",
         "p3x3Alt": "ankara 6"
+    },
+    {
+        "title": "Yvie's Muse",
+        "season": "SPRING 2020",
+        "folder": "muse",
+        "p1x1": "muse/1x1.JPG",
+        "p1x1Alt": "muse 1",
+        "p1x2": "muse/1x2.JPG",
+        "p1x2Alt": "muse 2",
+        "p2x1": "muse/2x1.JPG",
+        "p2x1Alt": "muse 3",
+        "p2x2": "muse/2x2.JPG",
+        "p2x2Alt": "muse 4",
+        "p3x1": "muse/3x1.JPG",
+        "p3x1Alt": "muse 5",
+        "p3x3": "muse/3x3.JPG",
+        "p3x3Alt": "muse 6"
     }
 ]

@@ -31,7 +31,7 @@
 }
 
 
-.link {
+.link, a {
   text-decoration: none !important;
   color: black !important;
 }

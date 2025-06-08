@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './StyleIt.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import Carousel from "../Components/Carousel";
-import Placeholder from "../Images/ph.png"
+import Stlyeit1 from "../Images/styleit1.jpg"
+import Stlyeit2 from "../Images/styleit2.jpg"
 import Collections from "../Collection/collection.json"
+import { importAllCollectionImages } from "../helpers/importCollectionImages";
 
-
+// 1a. Create one single, recursive context for every .png/.jpg/.svg in all subfolders of src/Collection:
+const allImages = importAllCollectionImages(
+    require.context('../Collection', true, /\.(png|jpe?g|svg|JPEG|JPG)$/)
+  );
+  
+  // Print just the first few filenames to confirm their exact folder/file pattern
+  console.log(
+    "📂 allImages (first 10 filenames):",
+    allImages.map(img => img.filename)
+  );
 export default function StyleIt () {
-
+    useEffect(() => {
+        console.log("📂 allImages (just filenames):", allImages.map(i => i.filename));
+      }, []);
+    
   return (
     <>
         <div className="styleItHero homeHero">
             <Container className="homeHeroContainer gap-5">
                 <h1 className="logoFont">Yvie Style it</h1>
-                <p className="styleItHeroText mont">Fashion is my super power, I live, breathe, and Inspire fashion. I design, sew, style, and recreate my vision. Explore as you join in my Journey to redefine FASHION.</p>
-                <p className="styleItHeroText mont">Yvie ~</p>
+                <p className="styleItHeroText mont">Fashion is a superpower. It can change the narrative of where you are and tell the story of who you are. I live, breathe, and inspire fashion in my corner of the world plotting to redefine fashion in relation to conservation and expression. Explore as you join me in my journey to redefine art expressions through fashion.</p>
+                <p className="styleItHeroText mont">~ Yvonne Amaria</p>
                 <div className="heroButtonPair mont">
                     <button><a href="/shop" className="link">Shop Now</a></button>
                     <button><a href="#Collections" className="link">Explore Collections</a></button>
@@ -26,60 +40,87 @@ export default function StyleIt () {
             <Carousel />
         </div>
         <div className="styleItAbout homeAbout">
-            <Container className="homeAboutContainer altMont">
+            <Container className="styleitContainer altMont">
                 <h1>Create Your Own Style</h1>
                 <Row className="homeAboutText">
-                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutImgCol">
-                        <img src={Placeholder} alt="homeAbout" className="homeAboutImg" />
+                    <Col xs={12} sm={12} md={4} lg={4} className="homeAboutImgCol">
+                        <img src={Stlyeit1} alt="homeAbout" className="homeAboutImg" />
                     </Col>
-                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutTextCol">
-                        <p>Designing is subjective. You can design anywhere, anytime, out of anything. I love to create, I love sewing, and I don’t always have the tools and venue I need to bring out my vision. I’d sit on the floor of my room, do the illustration art to guide me, get pieces of materials I have, improvise anything I don’t have, and create whatever I’m inspired to create. Whenever I can’t sew at home, I go to a neighboring tailor and ask to use their machine, and whenever I don’t understand the process to bring out my vision, I go on YouTube for help and further tutorials. Nothing stops my process.</p>
+                    <Col xs={12} sm={12} md={8} lg={8} className="homeAboutTextCol">
+                        <p className="styleittext1">
+                            Designing is subjective—there are no rules, no boundaries.
+                            I believe you can design anywhere, anytime, and out of anything. I create because I love it. Inspiration finds me at random moments, from daydreams on a bus ride to sketches I wake up to draw after dreaming about new designs. Sewing gives me the power to bring these visions to life, turning imagination into something real and greater than myself.
+                            Even without the perfect tools or ideal workspace, I make it happen. I’ll sit on the floor of my room, sketch out illustrations to guide me, gather whatever fabrics I can find, and improvise when needed. I’ve sourced materials by calling for donations through Instagram, repurposing clothes that might otherwise end up in landfills. When I’m stuck on an elaborate project, I turn to thrift stores—buying new fabric is always my last resort.
+                            I started without a sewing machine of my own. My first three collections were either hand-sewn or made with the help of a neighboring tailor’s machine. These experiences rooted my belief in building through community, and involving community in your art, especially when it’s tied to self-expression. Throughout college, I created entire collections using a $35, 5-pound travel machine. Today, I’m grateful to own both a computerized machine and a serger at home. Telling this story proves that limitations should never hinder the creative process. Not every idea I have comes out perfectly, and I haven’t been formally trained in every technique, but through the internet and accessible resources, I’ve taught myself to bring things together in my own little design classroom.
+                        </p>
                     </Col>
                 </Row>
                 <Row className="homeAboutText">
-                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutTextCol">
-                        <p>Be inspired, don’t let anything stop you from creating. You can create your own style anywhere, no matter the hindrance. Remember, designing is subjective, and creativity bears no limits.</p>
+                    <Col xs={12} sm={12} md={8} lg={8} className="homeAboutTextCol">
+                        <p className="styleittext2">
+                            Fashion isn’t just about making clothes; it’s about how they’re worn and embodied.
+                            Fashion lives in interpretation and styling. Yvie Style It was created to push youth culture and encourage cultural preservation. I invite you to join the movement and create your own style. I love seeing my pieces styled differently than how they debuted. It reminds me of the endless possibilities a single design can hold.
+                            Be inspired. Don’t let limitations hold you back during the making process and don’t box yourself in when it comes to styling. You can create your own style anywhere, under any condition.
+                            Remember: designing is subjective, and creativity has no limits.
+                        </p>
                     </Col>
-                    <Col xs={12} sm={12} md={6} lg={6} className="homeAboutImgCol">
-                        <img src={Placeholder} alt="homeAbout" className="homeAboutImg" />
+                    <Col xs={12} sm={12} md={4} lg={4} className="homeAboutImgCol">
+                        <img src={Stlyeit2} alt="homeAbout" className="homeAboutImg" />
                     </Col>
                 </Row>
             </Container>
         </div>
 
         <div className="passions">
-            <Container className="passionsContainer altMont gap-5 d-flex flex-column" id="Collections">
-                <h1>Explore the Collections</h1>
-                {
-                    Collections.map((collection, index) => (
-                        <Row className="Collection mb-5" key={index}>
-                            <div className="collectionDetail altMont mb-5">
-                                <h1>{collection.title}</h1>
-                                {/* <span>{collection.season}</span> */}
-                            </div>
-                            <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
-                                <img src={require(`../Collection/${collection.p1x1}`)} alt={collection.p1x1Alt} className="p1x1" />
-                            </Col>
-                            <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
-                                <img src={require(`../Collection/${collection.p1x2}`)} alt={collection.p1x2Alt} className="p2x1" />
-                            </Col>
-                            <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
-                                <img src={require(`../Collection/${collection.p2x1}`)} alt={collection.p2x1Alt} className="p1x2" />
-                            </Col>
-                            <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
-                                <img src={require(`../Collection/${collection.p2x2}`)} alt={collection.p2x2Alt} className="p1x2" />
-                            </Col>
-                            <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
-                                <img src={require(`../Collection/${collection.p3x1}`)} alt={collection.p3x1Alt} className="p2x1" />
-                            </Col>
-                            <Col xs={5} sm={5} md={4} lg={2} className="d-flex flex-column align-items-center">
-                                <img src={require(`../Collection/${collection.p3x3}`)} alt={collection.p3x3Alt} className="p1x1" />
-                            </Col>
-                        </Row>
-                    ))
-                }
-            </Container>
-        </div>
+        <Container
+          className="passionsContainer altMont gap-5 d-flex flex-column"
+          id="Collections"
+        >
+          {/*
+            Loop over each collection in your JSON.
+            JSON must still have a "folder" field (e.g. "ankara", "adire").
+          */}
+          {Collections.map((collection, idx) => {
+            const folderName = collection.folder; // e.g. "ankara"
+
+            // Grab everything whose filename starts with "ankara/"
+            // (e.g. "ankara/1x1.jpg", "ankara/1x2.jpg", etc.)
+            const imagesForThisFolder = allImages.filter(({ filename }) =>
+              filename.startsWith(`${folderName}/`)
+            );
+
+            // Log to make sure it's not empty:
+            console.log(
+              `🔍 [${collection.title}] images in folder "${folderName}":`,
+              imagesForThisFolder.map(i => i.filename)
+            );
+
+            return (
+              <Row className="Collection mb-5" key={idx}>
+                <div className="collectionDetail altMont mb-5">
+                  <h1>{collection.title}</h1>
+                </div>
+                {imagesForThisFolder.map((imgObj, imgIdx) => (
+                  <Col
+                    key={imgIdx}
+                    xs={5}
+                    sm={5}
+                    md={4}
+                    lg={2}
+                    className="d-flex flex-column align-items-center image-wrapper"
+                  >
+                    <img
+                      src={imgObj.src}
+                      alt={imgObj.filename}
+                      className="collection-img"
+                    />
+                  </Col>
+                ))}
+              </Row>
+            );
+          })}
+        </Container>
+      </div>
         {/* <div className="homeEvents">
             <Container className="homeEventsContainer altMont">
                 <h1>Upcoming Events</h1>

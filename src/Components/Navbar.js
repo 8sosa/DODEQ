@@ -5,7 +5,7 @@ import { Button, Container, Form, Nav, Navbar, Offcanvas } from 'react-bootstrap
 import { HashLink } from 'react-router-hash-link';
 import { NavLink } from 'react-router-dom';
 import { RiMenu4Line } from "react-icons/ri";
-import { FaXTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
+import { FaLinkedinIn, FaThreads, FaInstagram } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import Logo from '../Images/logo.png';
 
@@ -60,9 +60,9 @@ export default function NavBar() {
             </div>
             <div >
                 <div className='navSocials mid'>
-                    <FaFacebookF className='navSocial'/>
-                    <FaInstagram className='navSocial'/>
-                    <FaXTwitter className='navSocial'/>
+                  <a href='https://www.instagram.com/yviestyleit/' className='navSocial'><FaThreads /></a>
+                  <a href='https://www.instagram.com/yviestyleit/' className='navSocial'><FaInstagram /></a>
+                  <a href='www.linkedin.com/company/the-yvie-dodeq-ltd' className='navSocial'><FaLinkedinIn /></a>
                 </div>
             </div>
         </div>
@@ -85,9 +85,9 @@ export default function NavBar() {
         <Offcanvas.Body className="d-flex flex-column align-items-center">
           {renderNavLinks(handleClose)}
           <div className='d-flex flex-row navSocials'>
-            <FaFacebookF className='navSocial'/>
-            <FaInstagram className='navSocial'/>
-            <FaXTwitter className='navSocial'/>
+            <FaThreads className='navSocial'/>
+            <a href='https://www.instagram.com/yviestyleit/'><FaInstagram className='navSocial'/></a>
+            <a href='www.linkedin.com/company/the-yvie-dodeq-ltd'><FaLinkedinIn className='navSocial'/></a>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
