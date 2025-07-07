@@ -1,6 +1,23 @@
 [
     {
-        "title": "Yvie is Venus",
+        "folder": "nyfw",
+        "title": "ENWENE: A New York Fashion Week Collection",
+        "season": "AUTUMN 2025",
+        "p1x1": "nyfw/11.jpg",
+        "p1x1Alt": "nyfw 1",
+        "p1x2": "nyfw/12.jpg",
+        "p1x2Alt": "nyfw 2",
+        "p2x1": "nyfw/21.jpg",
+        "p2x1Alt": "nyfw 3",
+        "p2x2": "nyfw/22.jpg",
+        "p2x2Alt": "nyfw 4",
+        "p3x1": "nyfw/31.jpg",
+        "p3x1Alt": "nyfw 5",
+        "p3x3": "nyfw/32.jpg",
+        "p3x3Alt": "nyfw 6"
+    },
+    {
+        "title": "Yvie is Venus: A Renowned Fashion Collection",
         "season": "WINTER 2024",
         "folder": "venus", 
         "p1x1": "venus/8.JPEG",
@@ -34,7 +51,7 @@
         "p3x3Alt": "sf 6"
     },
     {
-        "title": "Yvie’s Unfinished",
+        "title": "Yvie’s Unfinished: A Slow Fashion Festival Collection",
         "season": "SPRING 2024",
         "folder": "unfinished", 
         "p1x1": "unfinished/1x1.jpg",
@@ -49,6 +66,23 @@
         "p3x1Alt": "unfinished 5",
         "p3x3": "unfinished/3x3.jpg",
         "p3x3Alt": "unfinished 6"
+    },
+    {
+        "title": "Yvie × Academia",
+        "season": "AUTUMN 2020",
+        "folder": "academia", 
+        "p1x1": "academia/1.jpg",
+        "p1x1Alt": "academia 1",
+        "p1x2": "academia/2.jpg",
+        "p1x2Alt": "academia 2",
+        "p2x1": "academia/3.jpg",
+        "p2x1Alt": "academia 3",
+        "p2x2": "academia/4.jpg",
+        "p2x2Alt": "academia 4",
+        "p3x1": "academia/5.jpg",
+        "p3x1Alt": "academia 5",
+        "p3x3": "academia/6.jpg",
+        "p3x3Alt": "academia 6"
     },
     {
         "title": "Yvie's Styling Experience: Retro fashion",
@@ -71,9 +105,9 @@
         "title": "Yvie's fashion editorial: Street fashion collection",
         "season": "WINTER 2020",
         "folder": "ankara", 
-        "p1x1": "ankara/1x1.jpg",
+        "p1x1": "ankara/1.jpg",
         "p1x1Alt": "ankara 1",
-        "p1x2": "ankara/1x2.jpg",
+        "p1x2": "ankara/3x2.jpg",
         "p1x2Alt": "ankara 2",
         "p2x1": "ankara/2x1.jpg",
         "p2x1Alt": "ankara 3",
@@ -81,7 +115,7 @@
         "p2x2Alt": "ankara 4",
         "p3x1": "ankara/3x1.jpg",
         "p3x1Alt": "ankara 5",
-        "p3x3": "ankara/3x3.jpg",
+        "p3x3": "ankara/3.jpg",
         "p3x3Alt": "ankara 6"
     },
     {

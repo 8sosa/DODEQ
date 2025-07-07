@@ -68,7 +68,11 @@
   .carousel:hover .slider-track {
     animation-play-state: paused;
   }
-  
+  .sectionHeader {
+    justify-self: center;
+    padding: 5rem 0rem 0rem 0rem;
+    font-family: 'Kavoon', cursive;
+  }
   /* Animation */
   @keyframes scroll-left {
     0% {
