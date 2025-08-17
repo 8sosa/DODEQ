@@ -15,7 +15,7 @@ export default function Home () {
     <>
         <div className="homeHero">
             <Container className="homeHeroContainer gap-5">
-                <h1 className="aladin">Yvie|DODEQ test</h1>
+                <h1 className="aladin">Yvie|DODEQ</h1>
                 <p className="baka">LIVE. WORK. INSPIRE</p>
                 {/* <div className="heroButtonPair mont">
                     <button>Explore My World</button>
