@@ -1,32 +1,103 @@
 .post {
-    margin: 3rem; 
+    margin: 2rem auto;
     background-color: rgba(255, 232, 255, 0.6);
     padding: 2rem;
     border-radius: 1rem;
     border: 0.5px solid rgba(0, 0, 0, 0.2);
     width: 100%;
+    max-width: 800px; /* keep it readable */
     height: auto;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-}  
-.post h3 { 
-    font-size: 1.8rem; 
+    gap: 1.5rem;
+  }
+  
+  .post h3 {
+    font-size: 1.8rem;
     font-weight: 600;
-}
-.post p { 
-    font-size: 1.5rem; 
-}
-/* Instagram Feed */
-.instagram-feed {
+  }
+  
+  .post p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  /* Instagram Feed */
+  .instagram-feed {
     margin-top: 2rem;
     text-align: center;
-}
-.instagram-feed iframe {
-    width:100%;
-    border:0;
-    overflow:hidden;
-    height: 80rem;
-}
+  }
+  
+  .instagram-feed iframe {
+    width: 100%;
+    border: 0;
+    overflow: hidden;
+    min-height: 500px;
+    height: 70vh; /* fluid height */
+    max-height: 900px;
+    border-radius: 0.75rem;
+  }
+  
+  /* Tablet (≤1024px) */
+  @media (max-width: 1024px) {
+    .post {
+      padding: 1.5rem;
+      max-width: 90%;
+    }
+  
+    .post h3 {
+      font-size: 1.5rem;
+    }
+  
+    .post p {
+      font-size: 1.1rem;
+    }
+  
+    .instagram-feed iframe {
+      height: 60vh;
+    }
+  }
+  
+  /* Mobile (≤768px) */
+  @media (max-width: 768px) {
+    .post {
+      margin: 1rem;
+      padding: 1.2rem;
+      gap: 1rem;
+    }
+  
+    .post h3 {
+      font-size: 1.3rem;
+    }
+  
+    .post p {
+      font-size: 1rem;
+    }
+  
+    .instagram-feed iframe {
+      height: 50vh;
+    }
+  }
+  
+  /* Small Phones (≤480px) */
+  @media (max-width: 480px) {
+    .post {
+      margin: 0.5rem;
+      padding: 1rem;
+    }
+  
+    .post h3 {
+      font-size: 1.1rem;
+    }
+  
+    .post p {
+      font-size: 0.95rem;
+    }
+  
+    .instagram-feed iframe {
+      height: 40vh;
+    }
+  }
+  

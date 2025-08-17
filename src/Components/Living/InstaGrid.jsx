@@ -57,36 +57,18 @@ export default function InstagramGrid({ postUrls = [] }) {
   }
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gap: 24,
-        gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))',
-        maxWidth: 1000,
-        margin: '0 auto',
-      }}
-    >
-      {normalized.map((url) => (
-        <blockquote
-          key={url}
-          className="instagram-media"
-        //   data-instgrm-captioned
-          data-instgrm-permalink={url}
-          data-instgrm-version="14"
-          style={{
-            background: '#FFF',
-            border: 0,
-            borderRadius: 3,
-            boxShadow:
-              '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
-            margin: 1,
-            maxWidth: 540,
-            minWidth: 326,
-            padding: 0,
-            width: '100%',
-          }}
-        ></blockquote>
-      ))}
-    </div>
+    <section className="instaSect">
+      <div className="instaGrid">
+        {normalized.map((url) => (
+          <blockquote
+            key={url}
+            className="instagram-media"
+            data-instgrm-permalink={url}
+            data-instgrm-version="14"
+          ></blockquote>
+        ))}
+      </div>
+    </section>
   );
+  
 }

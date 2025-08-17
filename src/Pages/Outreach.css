@@ -188,27 +188,115 @@
   border-radius: 8px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .differenceCards,
-  .aboutSection,
-  .campaignCards,
-  .mapContent,
-  .statsSection {
+/* Base styles are good — just enhancing responsiveness */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .aboutSection {
+    padding: 2rem;
     flex-direction: column;
-    align-items: center;
   }
 
-  .differenceCard,
-  .campaignCard,
-  .aboutContent,
-  .aboutImages,
-  .statsSection div,
-  .mapContent > div {
+  .aboutContent, 
+  .aboutImages {
     flex: 1 1 100%;
   }
 
-  .heroOverlay h1 {
-    font-size: 2rem;
+  .campaignCards {
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  .campaignCard {
+    flex: 1 1 calc(50% - 1rem); /* 2 per row */
+  }
+
+  .statsSection {
+    gap: 2rem;
+    justify-content: center;
   }
 }
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 1rem;
+  }
+
+  .heroOverlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .heroOverlay p {
+    font-size: 1rem;
+  }
+
+  .aboutSection {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .aboutImages img {
+    width: 100%; /* full width images */
+  }
+
+  .campaignCards {
+    flex-direction: column;
+  }
+
+  .campaignCard {
+    flex: 1 1 100%; /* single column */
+  }
+
+  .btnPair {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .primaryBtn {
+    width: 100%; /* easier taps */
+  }
+
+  .statsSection {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .statsSection div h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .heroOverlay {
+    padding: 1rem;
+  }
+
+  .heroOverlay h1 {
+    font-size: 1.5rem;
+  }
+
+  .heroOverlay p {
+    font-size: 0.9rem;
+  }
+
+  .ngoDetails {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .campSection {
+    padding: 2rem 1rem;
+  }
+
+  .campaignCard h4 {
+    font-size: 1rem;
+  }
+
+  .statsSection div h3 {
+    font-size: 1.2rem;
+  }
+}
+

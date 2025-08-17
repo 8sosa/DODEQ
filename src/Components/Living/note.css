@@ -7,8 +7,9 @@
     background-color: #f7f7f7;
     width: 100%;
     min-height: 75vh;
-}
-.card {
+  }
+  
+  .card {
     width: 100%;
     max-width: 50rem;
     border: 1px solid #f2f2f2;
@@ -18,11 +19,83 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-}
-.card p {
+    background: rgba(255, 255, 255, 0.8); /* subtle glass effect */
+    backdrop-filter: blur(8px);
+  }
+  
+  .card p {
     font-size: 1.5rem;
     text-align: center;
-}
-.card .mont {
+    line-height: 1.6;
+  }
+  
+  .card .mont {
     font-weight: 500;
-}
+    font-size: 1.25rem;
+  }
+  
+  /* ======================
+     Responsive Styling
+     ====================== */
+  
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .cardSection {
+      padding: 3rem 2rem;
+    }
+  
+    .card {
+      padding: 3rem;
+    }
+  
+    .card p {
+      font-size: 1.25rem;
+    }
+  
+    .card .mont {
+      font-size: 1.1rem;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .cardSection {
+      padding: 2rem 1rem;
+      min-height: 60vh;
+    }
+  
+    .card {
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+  
+    .card p {
+      font-size: 1.1rem;
+    }
+  
+    .card .mont {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Extra Small (phones) */
+  @media (max-width: 480px) {
+    .cardSection {
+      padding: 1.5rem 1rem;
+      min-height: 50vh;
+    }
+  
+    .card {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+  
+    .card p {
+      font-size: 1rem;
+    }
+  
+    .card .mont {
+      font-size: 0.9rem;
+    }
+  }
+  

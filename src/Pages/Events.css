@@ -192,4 +192,84 @@
     transform: translateX(2px);
   }
   
-  
+  /* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .eventsSection {
+    padding: 3rem 2rem;
+  }
+
+  .event-details {
+    gap: 1rem;
+  }
+
+  .event-details img {
+    height: 20rem;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .eventsSection {
+    padding: 2rem 1rem;
+  }
+
+  .event-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-date {
+    display: flex;
+    gap: 0.5rem;
+    width: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .event-details {
+    flex-direction: column;
+  }
+
+  .event-details img {
+    width: 100%;
+    height: auto;
+    max-height: 15rem;
+  }
+
+  .event-details h3 {
+    font-size: 1rem;
+  }
+
+  .event-details p,
+  .event-details a {
+    font-size: 0.85rem;
+  }
+
+  .toggle-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .eventsSection {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .event-details img {
+    max-height: 12rem;
+  }
+
+  .event-details h3 {
+    font-size: 0.95rem;
+  }
+
+  .event-details p {
+    font-size: 0.8rem;
+  }
+
+  .previous-events {
+    font-size: 0.75rem;
+  }
+}

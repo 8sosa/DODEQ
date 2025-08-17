@@ -1,7 +1,77 @@
 .instaSect {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5rem;
+  background-color: #f2f0ff;
+}
+
+.instaGrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Force Instagram embeds to resize properly */
+.instaGrid blockquote.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  flex: 1 1 auto;
+}
+
+/* ======================
+   Responsive Styling
+   ====================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .instaSect {
+    padding: 3rem 2rem;
+  }
+
+  .instaGrid {
+    gap: 20px;
+  }
+
+  .instaSect h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .instaSect {
+    padding: 2rem 1rem;
+  }
+
+  .instaGrid {
+    gap: 16px;
+    grid-template-columns: 1fr; /* stack one per row */
+  }
+
+  .instaSect h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Extra Small (phones) */
+@media (max-width: 480px) {
+  .instaSect {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .instaGrid {
+    gap: 12px;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    padding: 5rem;
-    background-color: #f2f0ff;
+    align-items: center; /* center items on small screens */
+  }
+
+  .instaSect h2 {
+    font-size: 1.1rem;
+  }
 }
