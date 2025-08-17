@@ -268,7 +268,7 @@ export default function Engineer() {
           <div className="grid-container">
             {images.map((imgSrc, idx) => (
               <div className="grid-item" key={idx}>
-                <img src={imgSrc} alt={`img-${idx}`} />
+                <img src={imgSrc} alt={`img-${idx}`} className="resume-photo"/>
               </div>
             ))}
           </div>
