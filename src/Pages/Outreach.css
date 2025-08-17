@@ -1,0 +1,214 @@
+.pageWrapper {
+  font-family: 'Helvetica', sans-serif;
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroOverlay {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.heroOverlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.heroOverlay p {
+  margin-bottom: 1.5rem;
+}
+
+.primaryBtn {
+  background-color: #ff7a00;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Difference Section */
+.differenceSection {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.differenceCards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.differenceCard {
+  flex: 1 1 calc(25% - 1rem);
+  background: #fff5f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.ngoSection {
+  padding: 4rem 0rem 0 0;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.ngoDetails {
+  padding: 0rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.campSection {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* About Section */
+.aboutSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem;
+  align-items: center;
+  background: #f8f8f8;
+}
+
+.aboutContent {
+  flex: 1 1 50%;
+}
+.aboutContent .btnPair {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.aboutImages {
+  flex: 1 1 40%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.aboutImages img {
+  width: 48%;
+  border-radius: 8px;
+}
+
+/* Campaigns */
+.campaignsSection {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.campaignCards {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.campaignCard {
+  flex: 1 1 calc(33% - 1rem);
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.campaignCard img {
+  width: 100%;
+  height: auto;
+}
+
+.campaignContent {
+  padding: 1rem;
+}
+
+.campaignCard h3 {
+  color: #ff7a00;
+  margin: 0.5rem 0;
+}
+
+/* Stats */
+.statsSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3rem 1rem;
+  background: #f2f0ff;
+  text-align: center;
+}
+
+.statsSection div {
+  flex: 1 1 20%;
+  min-width: 150px;
+}
+
+.statsSection div h3 {
+  color: #ff7a00;
+  font-size: 2rem;
+}
+
+/* Map Section */
+.mapSection {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.mapContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.mapContent > div {
+  flex: 1 1 20%;
+  min-width: 150px;
+}
+
+.mapImage img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .differenceCards,
+  .aboutSection,
+  .campaignCards,
+  .mapContent,
+  .statsSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .differenceCard,
+  .campaignCard,
+  .aboutContent,
+  .aboutImages,
+  .statsSection div,
+  .mapContent > div {
+    flex: 1 1 100%;
+  }
+
+  .heroOverlay h1 {
+    font-size: 2rem;
+  }
+}

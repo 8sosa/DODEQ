@@ -64,16 +64,22 @@
     border-radius: 1.2rem;
 }
 .collection-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover; /* optional: for consistent content fill */
-    border-radius: 8px; /* optional: for a nice visual touch */
-  }
-  
-  .image-wrapper {
-    padding: 8px; /* equal spacing around each image */
-  }
-  
+width: 100%;
+height: 400px;
+object-fit: cover; /* optional: for consistent content fill */
+border-radius: 8px; /* optional: for a nice visual touch */
+}
+.image-wrapper {
+padding: 8px; /* equal spacing around each image */
+}
+.homeHeroContainer h1 {
+    background-color: #c8a2c817;
+    padding: 1rem;
+}
+.homeHeroContainer p {
+    background-color: #c8a2c820;
+    padding: 1rem;
+}
 /* --- Responsive Adjustments --- */
 
 /* For devices with a max-width of 768px (tablets and smaller laptops) */

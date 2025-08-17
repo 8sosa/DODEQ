@@ -1,0 +1,48 @@
+.engRow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.engImgCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.engImg {
+    max-width: 100%;
+    width: 15rem;
+    height: 20rem;
+    object-fit: cover;
+    overflow: hidden;
+    border: 2px solid #000;
+    border-radius: 1rem;
+}
+.resumeSummary {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+  }
+  
+  .resumeSummary h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: right;
+  }
+  
+  .resumeSummary h2 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    text-align: right;
+  }
+  
+  .resume-summary p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    text-align: justify;
+  }

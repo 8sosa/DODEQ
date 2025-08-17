@@ -81,7 +81,7 @@ export default function Engineer() {
             </div>
           </header>
 
-          <Row>
+          <Row className="contRow">
             <Col>
               <h3>Career History</h3>
             </Col>
@@ -106,7 +106,7 @@ export default function Engineer() {
             </Col>
           </Row>
 
-          <Row>
+          <Row className="contRow">
             <Col>
               <h3>Education</h3>
             </Col>
@@ -137,7 +137,7 @@ export default function Engineer() {
             </Col>
           </Row>
 
-          <Row>
+          <Row className="contRow">
             <Col>
               <h3>Awards</h3>
             </Col>
@@ -164,7 +164,7 @@ export default function Engineer() {
             </Col>
           </Row>
 
-          <Row>
+          <Row className="contRow">
             <Col>
               <h3>Skills & Competencies</h3>
             </Col>
@@ -181,7 +181,7 @@ export default function Engineer() {
             </Col>
           </Row>
 
-          <Row>
+          <Row className="contRow">
             <Col>
               <h3>Volunteer & Leadership Experience</h3>
             </Col>
@@ -216,7 +216,7 @@ export default function Engineer() {
             </Col>
           </Row>
 
-          <Row>
+          <Row className="contRow">
             <Col>
               <h3>Teaching & Mentorship Experience</h3>
             </Col>

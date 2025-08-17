@@ -17,15 +17,16 @@ export default function NavBar() {
 
   const navLinks = [
     { to: "/yvie-style-it", label: "Yvie Style It", ariaLabel: "Yvie Style It" },
-    // { to: "/yvie-flexit", label: "Yvie Flex It", ariaLabel: "Yvie Flex It" },
-    // { to: "/yvies-speaking", label: "Yvie’s Speaking", ariaLabel: "Yvie’s Speaking" },
+    // { to: "/yvies-speaks-it", label: "Yvie’s Speaks It", ariaLabel: "Yvie’s Speaks It" },
     { to: "/yvie-write-it", label: "Yvie Writes It", ariaLabel: "Yvie Writes It" },
-    // { to: "/yvies-cooking", label: "Yvie’s Cooking", ariaLabel: "Yvie’s Cooking" },
     { to: "/yvie-is-an-engineer", label: "Yvie is an Engineer?", ariaLabel: "Yvie is an Engineer?" },
     // { to: "/yvies-outreach", label: "Yvie’s Outreach", ariaLabel: "Yvie’s Outreach" },
     // { to: "/yvies-event", label: "Yvie’s Event", ariaLabel: "Yvie’s Event" },
-    // { to: "/yvie-x-society", label: "Yvie × Society", ariaLabel: "Yvie × Society" },
     // { to: "/yvies-just-living", label: "Yvie’s Just Living", ariaLabel: "Yvie’s Just Living" },
+    
+    // { to: "/yvie-flexit", label: "Yvie Flex It", ariaLabel: "Yvie Flex It" },
+    // { to: "/yvies-cooking", label: "Yvie’s Cooking", ariaLabel: "Yvie’s Cooking" },
+    // { to: "/yvie-x-society", label: "Yvie × Society", ariaLabel: "Yvie × Society" },
     // { to: "/yvie-does-collaborations", label: "Yvie Does Collaborations", ariaLabel: "Yvie Does Collaborations" },
   ];
   

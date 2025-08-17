@@ -1,0 +1,147 @@
+.recMain {
+    background-color: #f2f0ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem;
+}
+.recTitle {
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 5rem;
+}
+.recMonth {
+    font-size: 6rem;
+    margin-bottom: 10rem;
+}
+.recommendations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.moviesRecs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.moviesRecs h3, #articles h3, #Music h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    align-self: flex-start;
+}
+.moviesRecsBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+}
+.movieRec {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.movieRec img{
+    width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    border: 3px solid #000;
+    border-radius: 1rem 1rem 0px 0px;
+}
+.movieRec div {
+    border: 3px solid #000;
+    border-radius: 0px 0px 1rem 1rem;
+    padding: 1rem;
+}
+.movieRec div:hover {
+    background-color: #000;
+    color: #544894;
+}
+.movieRec h3 {
+    margin-bottom: 10px;
+}
+#articles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 5rem 10rem;
+}
+.articlesRecs {
+    min-height: 30rem;
+}
+.articlesRecsBox {
+    max-height: 30rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+}
+.articlesRecsBox img {
+    width: 100%;
+    max-height: 30rem;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0px 0px;
+}
+.articlesRecsBox div{
+    color: #000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    padding: 2rem;
+    border-left: 2px solid #000;
+}
+#Music {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.musicRecs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .musicRec {
+    background: #f8f8f8;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .musicRec:hover {
+    transform: translateY(-5px);
+  }
+  
+  .musicRec img {
+    width: 100%;
+    height: 15rem;
+    display: block;
+    object-fit: cover;
+  }
+  .musicRec div {
+    padding: 1rem;
+    background: #f8f8f8;
+  }
+  .musicRec h4 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  

@@ -8,15 +8,8 @@ import Stlyeit2 from "../Images/styleit2.jpg"
 import Collections from "../Collection/collection.json"
 import { importAllCollectionImages } from "../helpers/importCollectionImages";
 
-// 1a. Create one single, recursive context for every .png/.jpg/.svg in all subfolders of src/Collection:
 const allImages = importAllCollectionImages(
     require.context('../Collection', true, /\.(png|jpe?g|svg|JPEG|JPG)$/)
-  );
-  
-  // Print just the first few filenames to confirm their exact folder/file pattern
-  console.log(
-    "📂 allImages (first 10 filenames):",
-    allImages.map(img => img.filename)
   );
 export default function StyleIt () {
     useEffect(() => {

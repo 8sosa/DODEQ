@@ -1,0 +1,195 @@
+/* Fade animations */
+.fade-in {
+    animation: fadeIn 1s ease-in both;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease both;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .eventsSection {
+    padding: 5rem;
+  }
+  
+  /* Event list styling */
+  .event-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    border-bottom: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .event-date {
+    text-align: center;
+    width: 3.5rem;
+    flex-shrink: 0;
+  }
+  
+  .event-date .month {
+    font-size: 0.75rem;
+    color: #6b7280; /* gray-500 */
+    font-weight: 500;
+  }
+  
+  .event-date .day {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .event-details {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+  }
+  .event-details img {
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .event-details h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0.25rem 0;
+  }
+  
+  .event-details p {
+    font-size: 0.875rem;
+    color: #4b5563; /* gray-700 */
+  }
+  
+  .event-details a {
+    font-size: 0.875rem;
+    color: #374151; /* gray-800 */
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 0.25rem;
+    transition: color 0.2s;
+  }
+  
+  .event-details a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+  /* Toggle buttons */
+  .toggle-buttons button {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: color 0.2s;
+  }
+  
+  .toggle-buttons button:hover {
+    color: #000;
+  }
+  
+  .toggle-buttons .active {
+    font-weight: 600;
+    color: #000;
+    border-bottom: 1px solid #000;
+  }
+  
+  /* Footer */
+  .footer-overlay {
+    position: relative;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  
+  .footer-overlay p {
+    font-style: italic;
+    font-size: 1.25rem;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+  
+  .footer-overlay .footer-logo {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #fff;
+    border-radius: 9999px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  /* Previous events link */
+  .previous-events {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: #6b7280; /* gray-500 */
+    margin-top: 1rem;
+    text-decoration: none;
+  }
+  
+  .previous-events:hover {
+    text-decoration: underline;
+    color: #000;
+  }
+  /* Add subtle card shadow for event cards */
+.event-details img {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  /* Better spacing between date + content */
+  .event-item {
+    gap: 1.25rem;
+  }
+  
+  /* Smooth hover lift effect on event image */
+  .event-details img:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+  
+  /* Month view headings spacing */
+  .month-view h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #374151; /* gray-800 */
+  }
+  
+  /* Fade-in animations delay to stagger items */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease both;
+    animation-delay: 0.05s;
+  }
+  
+  /* Optional: Make "View Event Details" an arrow icon on hover */
+  .event-details a::after {
+    content: ' →';
+    transition: transform 0.2s ease;
+  }
+  
+  .event-details a:hover::after {
+    transform: translateX(2px);
+  }
+  
+  

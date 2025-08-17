@@ -1,0 +1,7 @@
+.instaSect {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5rem;
+    background-color: #f2f0ff;
+}
