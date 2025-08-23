@@ -5,8 +5,8 @@ export default function Note() {
   return (
     <section className='cardSection glass'>
         <div className='card glass'>
-            <p className='altMont'>“Live in the present, launch yourself on every wave, find eternity in each moment.”</p>
-            <p className='mont'>Henry David Thoreau</p>
+            <p className='altMont'>“I just exist and I'm living my existence in the world.”</p>
+            <p className='mont'>Yvonne Amaria O.</p>
         </div>
     </section>
   )

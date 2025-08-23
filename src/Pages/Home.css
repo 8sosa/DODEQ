@@ -148,9 +148,9 @@
     padding: 0.5rem 2.5rem;
 }
 .styleItHeroText {
-    font-size: 2rem !important;
-    font-weight: 500 !important;
-    color: #151515 !important;
+    font-size: 2rem ;
+    font-weight: 500 ;
+    color: #151515 ;
 }
 .styleIt {
     width: 100%;

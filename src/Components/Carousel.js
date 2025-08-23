@@ -1,35 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import './Carousel.css';
-import Collections from '../Collection/collection.json';
-
-const images = {};
-function importAll(r) {
-  r.keys().forEach((key) => {
-    const fileName = key.replace('./', '');
-    images[fileName] = r(key).default || r(key);
-  });
-}
-importAll(require.context('../Collection', false, /\.(png|jpe?g|svg)$/));
+import { client } from "../lib/Contentful";
 
 export default function Carousel() {
-  // const handleClick = (e) => {
-  //   const target = e.target.closest('.carousel-item');
-  //   if (target) {
-  //     const index = Array.from(target.parentNode.children).indexOf(target);
-  //     console.log('Clicked item index:', index);
-  //   }
-  // };
+  const [collections, setCollections] = useState([]);
+
+  useEffect(() => {
+    const fetchCollections = async () => {
+      try {
+        const res = await client.getEntries({ content_type: "collections" });
+        const mapped = res.items.map((item) => ({
+          title: item.fields.title,
+          firstImage: item.fields.collectionImages?.[0]
+            ? "https:" + item.fields.collectionImages[0].fields.file.url
+            : null,
+        }));
+        setCollections(mapped);
+      } catch (err) {
+        console.error("❌ Error fetching collections:", err);
+      }
+    };
+
+    fetchCollections();
+  }, []);
+
   return (
     <div className="carousel">
       <div className="slider-track">
-        {Collections.map((col, i) => (
+        {collections.map((col, i) => (
           <a key={i} href="#Collections" className="carousel-item">
             <div>
-              <img
-                src={require(`../Collection/${col.p1x2}`)}
-                alt={col.p1x2Alt}
-                className='carousel-image'
-              />
+              {col.firstImage ? (
+                <img
+                  src={col.firstImage}
+                  alt={col.title}
+                  className="carousel-image"
+                />
+              ) : (
+                <div className="carousel-placeholder">No Image</div>
+              )}
             </div>
             <div className="caption logoFont">{col.title}</div>
           </a>

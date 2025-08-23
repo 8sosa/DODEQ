@@ -1,25 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './StyleIt.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import Carousel from "../Components/Carousel";
 import Stlyeit1 from "../Images/styleit1.jpg"
 import Stlyeit2 from "../Images/styleit2.jpg"
-import Collections from "../Collection/collection.json"
-import { importAllCollectionImages } from "../helpers/importCollectionImages";
+import { client } from "../lib/Contentful";
 
-const allImages = importAllCollectionImages(
-    require.context('../Collection', true, /\.(png|jpe?g|svg|JPEG|JPG)$/)
-  );
-export default function StyleIt () {
-    useEffect(() => {
-        console.log("📂 allImages (just filenames):", allImages.map(i => i.filename));
-      }, []);
+export default function StyleIt() {
+  const [collections, setCollections] = useState([]);
+
+  useEffect(() => {
+    const fetchCollections = async () => {
+      try {
+        const res = await client.getEntries({ content_type: "collections" });
+        const mapped = res.items.map((item) => ({
+          title: item.fields.title,
+          images: item.fields.collectionImages.map(
+            (img) => "https:" + img.fields.file.url
+          ),
+        }));
+        setCollections(mapped);
+
+        console.log("✅ Collections from Contentful:", mapped);
+      } catch (err) {
+        console.error("❌ Error fetching collections:", err);
+      }
+    };
+
+    fetchCollections();
+  }, []);
     
   return (
     <>
-        <div className="styleItHero homeHero">
-            <Container className="homeHeroContainer gap-5">
+        <div className="styleItHero">
+            <Container className="styleItHeroContainer gap-5">
                 <h1 className="logoFont">Yvie Style it</h1>
                 <p className="styleItHeroText mont">Fashion is a superpower. It can change the narrative of where you are and tell the story of who you are. I live, breathe, and inspire fashion in my corner of the world plotting to redefine fashion in relation to conservation and expression. Explore as you join me in my journey to redefine art expressions through fashion.</p>
                 <p className="styleItHeroText mont">~ Yvonne Amaria</p>
@@ -64,65 +79,37 @@ export default function StyleIt () {
             </Container>
         </div>
 
-        <div className="passions">
+        {/* Collections Section */}
+      <div className="passions">
         <Container
           className="passionsContainer altMont gap-5 d-flex flex-column"
           id="Collections"
         >
-          {/*
-            Loop over each collection in your JSON.
-            JSON must still have a "folder" field (e.g. "ankara", "adire").
-          */}
-          {Collections.map((collection, idx) => {
-            const folderName = collection.folder; // e.g. "ankara"
-
-            // Grab everything whose filename starts with "ankara/"
-            // (e.g. "ankara/1x1.jpg", "ankara/1x2.jpg", etc.)
-            const imagesForThisFolder = allImages.filter(({ filename }) =>
-              filename.startsWith(`${folderName}/`)
-            );
-
-            // Log to make sure it's not empty:
-            console.log(
-              `🔍 [${collection.title}] images in folder "${folderName}":`,
-              imagesForThisFolder.map(i => i.filename)
-            );
-
-            return (
-              <Row className="Collection mb-5" key={idx}>
-                <div className="collectionDetail altMont mb-5">
-                  <h1>{collection.title}</h1>
-                </div>
-                {imagesForThisFolder.map((imgObj, imgIdx) => (
-                  <Col
-                    key={imgIdx}
-                    xs={5}
-                    sm={5}
-                    md={4}
-                    lg={2}
-                    className="d-flex flex-column align-items-center image-wrapper"
-                  >
-                    <img
-                      src={imgObj.src}
-                      alt={imgObj.filename}
-                      className="collection-img"
-                    />
-                  </Col>
-                ))}
-              </Row>
-            );
-          })}
+          {collections.map((collection, idx) => (
+            <Row className="Collection mb-5" key={idx}>
+              <div className="collectionDetail altMont mb-5">
+                <h1>{collection.title}</h1>
+              </div>
+              {collection.images.map((imgUrl, imgIdx) => (
+                <Col
+                  key={imgIdx}
+                  xs={12}   // Full width on mobile
+                  sm={6}    // 2 per row on tablets
+                  md={4}    // 3 per row on medium screens
+                  lg={3}    // 4 per row on large screens
+                  className="d-flex justify-content-center image-wrapper"
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`${collection.title}-${imgIdx}`}
+                    className="collection-img"
+                  />
+                </Col>
+              ))}
+            </Row>
+          ))}
         </Container>
       </div>
-        {/* <div className="homeEvents">
-            <Container className="homeEventsContainer altMont">
-                <h1>Upcoming Events</h1>
-                <div class="team">
-                    <div class="team-item"><img src={Placeholder} alt='our selves'/></div>
-                    <div class="team-item"><img src={Placeholder} alt='our selves'/></div>
-                </div>
-            </Container>
-        </div> */}
     </>
   );
 };

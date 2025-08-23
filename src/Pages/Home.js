@@ -3,7 +3,7 @@ import './Home.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from 'react-bootstrap';
 import Eng from "../Components/Eng";
-import Carousel from "../Components/Carousel";
+import HomeCarousel from "../Components/HomeCarousel";
 import Posts from "../Components/Posts";
 
 import { BookCarousel } from "../Components/Living/BookCarousel";
@@ -31,7 +31,7 @@ export default function Home () {
         </div>
         <div className="homeEvents">
             <h1 className="pb-5">YVIE STYLE IT</h1>
-            <Carousel />
+            <HomeCarousel />
         </div>
         <div className="homeEvents">
             <h1>YVIE WRITE IT</h1>
