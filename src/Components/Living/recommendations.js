@@ -77,6 +77,7 @@ export const Recommendations = () => {
         </div>
 
         {/* Articles Section */}
+        {articles.length > 0 && (
         <div id="articles">
           <h3>Articles</h3>
           <Carousel
@@ -96,6 +97,7 @@ export const Recommendations = () => {
             ))}
           </Carousel>
         </div>
+        )}
 
         {/* Music Section */}
         <div id="Music">
