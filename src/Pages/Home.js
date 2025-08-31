@@ -22,7 +22,7 @@ export default function Home () {
         <div className="homeAbout">
             <Container className="homeAboutContainer altMont">
                 <h1>Meet Yvie</h1>
-                <p>My name is Yvonne Amaria Jose. I just discovered that it’s my purpose to inspire and that’s what I intend to do. Watch me grow and join in my little adventure as I navigate the world, discover more, challenge myself, and inspire with what I can do. Welcome here! Hope you have fun and you’re inspired.</p>
+                <p>Hi! My name is Yvonne Amaria and my purpose is to inspire and build communities, promoting cultural preservation and expression in every form. Join me on my little adventures as we navigate the world and challenge ourselves to live, work towards a purpose, and inspire with said purpose. Welcome and have fun on this side of the sphere!</p>
             </Container>
         </div>
         <div className="homeEvents">
