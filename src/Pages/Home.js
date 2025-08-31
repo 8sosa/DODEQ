@@ -2,7 +2,7 @@ import React from "react";
 import './Home.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from 'react-bootstrap';
-import Eng from "../Components/Eng";
+// import Eng from "../Components/Eng";
 import HomeCarousel from "../Components/HomeCarousel";
 import Posts from "../Components/Posts";
 
@@ -17,10 +17,6 @@ export default function Home () {
             <Container className="homeHeroContainer gap-5">
                 <h1 className="aladin">Yvie|DODEQ</h1>
                 <p className="baka">LIVE. WORK. INSPIRE</p>
-                {/* <div className="heroButtonPair mont">
-                    <button>Explore My World</button>
-                    <button><a href="/shop" className="link">Shop YvieStyleIt</a></button>
-                </div> */}
             </Container>
         </div>
         <div className="homeAbout">
@@ -38,9 +34,9 @@ export default function Home () {
             <Posts />
             <a href="/yvie-write-it"><h4 className="mont">View More...</h4></a>
         </div>
-        <div className="homeEvents">
+        {/* <div className="homeEvents">
             <Eng />
-        </div>
+        </div> */}
         <section className="ngoSection">
           <div className="ngoDetails">
             <h2>SheUnitesAfrica</h2>

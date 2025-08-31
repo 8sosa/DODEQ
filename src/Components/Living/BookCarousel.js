@@ -40,7 +40,7 @@ export const BookCarousel = () => {
 
   return (
     <section className="book-carousel-section">
-      <h2 className="altMont">Currently Reading</h2>
+      <h2 className="altMont">Recommendations</h2>
       <div className="carousel-wrapper">
         <div className="scroll-button left" onClick={() => scroll("left")}>
           &lt;
