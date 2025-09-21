@@ -2,11 +2,12 @@ import React from "react";
 import './Home.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from 'react-bootstrap';
-// import Eng from "../Components/Eng";
+import eng1 from '../Images/eng/ff.png';
+import eng2 from '../Images/eng/fg.png';
 import HomeCarousel from "../Components/HomeCarousel";
 import Posts from "../Components/Posts";
 
-import { BookCarousel } from "../Components/Living/BookCarousel";
+import HomeLivingCarousel from "../Components/HomeLivingCarousel";
 import SU from '../Images/outreach/cc.png';
 import SA from '../Images/outreach/gg.png';
 
@@ -14,16 +15,23 @@ export default function Home () {
   return (
     <>
         <div className="homeHero">
-            <Container className="homeHeroContainer gap-5">
-                <h1 className="aladin">Yvie|DODEQ</h1>
+            <Container className="homeHeroContainer">
+                <h1 className="aladin white">Yvie|DODEQ</h1>
                 <p className="baka">LIVE. WORK. INSPIRE</p>
             </Container>
         </div>
         <div className="homeAbout">
-            <Container className="homeAboutContainer altMont">
+            <Container className="homeAboutContainer">
                 <h1>Meet Yvie</h1>
-                <p>Hi! My name is Yvonne Amaria and my purpose is to inspire and build communities, promoting cultural preservation and expression in every form. Join me on my little adventures as we navigate the world and challenge ourselves to live, work towards a purpose, and inspire with said purpose. Welcome and have fun on this side of the sphere!</p>
+                <p className="altMont">Hi! My name is Yvonne Amaria and my purpose is to inspire and build communities, promoting cultural preservation and expression in every form. Join me on my little adventures as we navigate the world and challenge ourselves to live, work towards a purpose, and inspire with said purpose. Welcome and have fun on this side of the sphere!</p>
             </Container>
+        </div>
+        <div className="homeEng">
+          <h1 className="pb-5">YVIE's an Engineer</h1>
+          <div className="grid-container">
+            <img src={eng1} alt="Yvie Engineer" className="resume-photo"/>
+            <img src={eng2} alt="Yvie Engineer" className="resume-photo"/>
+          </div>
         </div>
         <div className="homeEvents">
             <h1 className="pb-5">YVIE STYLE IT</h1>
@@ -66,7 +74,9 @@ export default function Home () {
         </section>
         <div className="homeEvents">
             <h1>YVIE EVENTS</h1>
-            <div id="event" className="event-item fade-in-up p-5">
+
+            <p>No Upcoming Events...</p>
+            {/* <div id="event" className="event-item fade-in-up p-5">
                 <div className="event-date">
                     <div className="month">JUN</div>
                     <div className="day">23</div>
@@ -79,10 +89,10 @@ export default function Home () {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <a href={`/events/risen-event`}>View Event Details →</a>
                     </div>
-                </div>
-            </div>
+                </div> 
+            </div> */}
         </div>
-        <BookCarousel />
+        <HomeLivingCarousel />
     </>
   );
 };

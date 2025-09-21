@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import commentBox from "commentbox.io";
+// import commentBox from "commentbox.io";
+import Comments from "./Comments";
 import { Col, Row, Modal, Button, Image, Spinner } from "react-bootstrap";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
@@ -16,6 +17,7 @@ export default function Poems() {
     const fetchPoems = async () => {
       try {
         const response = await client.getEntries({ content_type: "poem" });
+        // console.log(response.items);
         setPoems(response.items);
       } catch (error) {
         console.error("Error fetching poems:", error);
@@ -27,16 +29,31 @@ export default function Poems() {
   }, []);
 
   // Comments integration
+  // useEffect(() => {
+  //   if (activePoem?.fields?.title) {
+  //     const threadId = activePoem.fields.title.toLowerCase().replace(/\s+/g, "-");
+  //     const removeCommentBox = commentBox("5769248198623232-proj", {
+  //       defaultBoxId: threadId,
+  //       pageId: threadId,
+  //     });
+  //     return () => removeCommentBox();
+  //   }
+  // }, [activePoem]);
   useEffect(() => {
-    if (activePoem?.fields?.title) {
-      const threadId = activePoem.fields.title.toLowerCase().replace(/\s+/g, "-");
-      const removeCommentBox = commentBox("5769248198623232-proj", {
-        defaultBoxId: threadId,
-        pageId: threadId,
-      });
-      return () => removeCommentBox();
+    if (!loading && poems.length > 0) {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const targetPoem = poems.find((poem) => poem.sys.id === hash);
+        if (targetPoem) {
+          setActivePoem(targetPoem);
+          setShowModal(true);
+          // optional: scroll into view
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
-  }, [activePoem]);
+  }, [loading, poems]);
+  
 
   const handleReadMore = (poem) => {
     setActivePoem(poem);
@@ -71,6 +88,7 @@ export default function Poems() {
             />
           )}
           <div>{documentToReactComponents(activePoem?.fields?.poemContent)}</div>
+          <Comments contentId={activePoem?.sys.id} contentType="poem" />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -94,7 +112,7 @@ export default function Poems() {
                     plainText.length > 120 ? plainText.substring(0, 120) + "..." : plainText;
 
                 return (
-                    <Col key={index} className="mb-5">
+                    <Col key={index} className="mb-5" id={poem.sys.id}>
                     <div className="blog-post">
                         {poem.fields.poemCover && (
                         <img

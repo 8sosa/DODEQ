@@ -12,6 +12,7 @@ import Shop from './Pages/Shop'
 import Outreach from './Pages/Outreach'
 import Events from './Pages/Events'
 import Archive from './Pages/Archive'
+import About from './Pages/About'
 
 export default function SuaRoutes() {
     return (
@@ -21,6 +22,7 @@ export default function SuaRoutes() {
                     <div className="content">
                         <Routes>
                             <Route path='/' element={<Home />} exact/>
+                            <Route path='/about-us' element={<About />} exact/>
                             <Route path='/yvie-style-it' element={<StyleIt />} exact/>
                             <Route path='/yvies-speaking' element={<SpeakIt />} exact/>
                             <Route path='/yvies-event' element={<Events />} exact/>

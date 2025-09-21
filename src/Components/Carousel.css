@@ -1,11 +1,12 @@
 .carousel {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    background: #fefefe;
-    border-radius: 10px;
-    position: relative;
-  }
+  padding: 1rem;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #fefefe;
+  border-radius: 10px;
+  position: relative;
+}
 
 
 .carousel::before,
@@ -36,6 +37,12 @@
     animation: scroll-left 30s linear infinite;
   }
   
+  .slider-track1 {
+    display: flex;
+    width: max-content;
+    gap: 5rem;
+  }
+  
   .carousel-item {
     flex: 0 0 auto;
     width: 25rem;
@@ -52,7 +59,7 @@
     border-radius: 1rem;
   }
   
-  .caption {
+  .caption, .carousel-caption {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -72,6 +79,12 @@
     justify-self: center;
     padding: 5rem 0rem 0rem 0rem;
     font-family: 'Kavoon', cursive;
+  }
+  .Recomendations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
   }
   /* Animation */
   @keyframes scroll-left {

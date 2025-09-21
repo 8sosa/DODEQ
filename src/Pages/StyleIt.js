@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from "react";
-import './StyleIt.css'
+import './StyleIt.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from 'react-bootstrap';
 import Carousel from "../Components/Carousel";
-import Stlyeit1 from "../Images/styleit1.jpg"
-import Stlyeit2 from "../Images/styleit2.jpg"
+import Stlyeit1 from "../Images/styleit1.jpg";
+import Stlyeit2 from "../Images/styleit2.jpg";
 import { client } from "../lib/Contentful";
 
 export default function StyleIt() {
   const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCollections = async () => {
       try {
         const res = await client.getEntries({ content_type: "collections" });
         const mapped = res.items.map((item) => ({
+          id: item.sys.id,
           title: item.fields.title,
           images: item.fields.collectionImages.map(
             (img) => "https:" + img.fields.file.url
           ),
         }));
         setCollections(mapped);
+        setLoading(false);
 
         console.log("✅ Collections from Contentful:", mapped);
       } catch (err) {
@@ -30,7 +33,19 @@ export default function StyleIt() {
 
     fetchCollections();
   }, []);
-    
+
+  useEffect(() => {
+    if (!loading && collections.length > 0) {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const target = document.getElementById(hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [loading, collections]);
+
   return (
     <>
         <div className="styleItHero">
@@ -86,7 +101,7 @@ export default function StyleIt() {
           id="Collections"
         >
           {collections.map((collection, idx) => (
-            <Row className="Collection mb-5" key={idx}>
+            <Row className="Collection mb-5" key={collection.id} id={collection.id}>
               <div className="collectionDetail altMont mb-5">
                 <h1>{collection.title}</h1>
               </div>

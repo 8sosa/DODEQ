@@ -120,11 +120,13 @@ border-radius: 8px; /* optional: for a nice visual touch */
 padding: 8px; /* equal spacing around each image */
 }
 .homeHeroContainer h1 {
-    background-color: #c8a2c817;
+    background-color: #ff00ff5c;
+    border-radius: 3rem;
     padding: 1rem;
 }
 .homeHeroContainer p {
-    background-color: #c8a2c83e;
+    background-color: #ff00ff5c;
+    border-radius: 3rem;
     padding: 1rem;
 }
 /* --- Responsive Adjustments --- */

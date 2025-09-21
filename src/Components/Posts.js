@@ -8,15 +8,32 @@ export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [activePost, setActivePost] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     client
       .getEntries({ content_type: "blogPost", order: "-sys.createdAt" })
       .then((response) => {
         setPosts(response.items);
+        setLoading(false);
       })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    if (!loading && posts.length > 0) {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const targetPost = posts.find((post) => post.sys.id === hash);
+        if (targetPost) {
+          setActivePost(targetPost);
+          setShowModal(true);
+          // optional: scroll into view
+          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [loading, posts]);
 
   const handleReadMore = (post) => {
     setActivePost(post);
@@ -76,7 +93,7 @@ export default function Posts() {
                 : plainText;
 
             return (
-              <Col key={index} className="mb-5">
+              <Col key={index} className="mb-5" id={post.sys.id}>
                 <div className="blog-post">
                   {post.fields.blogPostCover && (
                     <img

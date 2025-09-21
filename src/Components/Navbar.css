@@ -92,8 +92,10 @@
 }
 .searchBarLg {
     display: flex;
+    justify-content: center;
 }
 .searchBarLg, .searchBarSm {
+    position: relative;
     flex-direction: row;
     align-items: center;
     gap: .5rem;
@@ -101,6 +103,27 @@
 .offcanvas-body {
     gap: 1rem;
 }
+
+.search-dropdown {
+    font-family: Inter, sans-serif;
+  }
+  
+  .dropdown-section {
+    font-weight: 600;
+    padding: 6px 12px;
+    background: #f9f9f9;
+    font-size: 0.9rem;
+  }
+  
+  .dropdown-item {
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background: #efefef;
+  }
+  
 /* -------------------------------- */
 /* Responsive Media Queries       */
 /* -------------------------------- */
