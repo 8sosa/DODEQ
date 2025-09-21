@@ -1,8 +1,8 @@
 import React from "react";
 import './Outreach.css';
-import HeroBg from "../Images/heros/living.jpeg";
+import HeroBg from "../Images/heros/outreach.jpg";
 import { HeroSection } from "../Components/Hero";
-import Ph from '../Images/ph.png';
+// import Ph from '../Images/ph.png';
 import SU from '../Images/outreach/cc.png';
 import SA from '../Images/outreach/gg.png';
 import PP from '../Images/outreach/kk.WEBP';
@@ -36,8 +36,8 @@ export default function OutreachPage() {
               </p>
               <p>Through careful research and engagement with vulnerable communities, we recognize that women and girls experience the scourge of poverty in ways that limit their education, financial security, and overall well-being. Our initiatives are designed to bridge this gap, ensuring that females can access the same opportunities as men and boys.</p>
               <div className="btnPair">
-                <button className="primaryBtn">Learn More</button>
-                <button className="primaryBtn">Donate Now</button>
+                <a href="https://violetcarefoundation.com"><button className="primaryBtn">Learn More</button></a>
+                <a href="https://violetcarefoundation.com"><button className="primaryBtn">Donate Now</button></a>
               </div>
             </div>
             <div className="aboutImages">
@@ -46,7 +46,7 @@ export default function OutreachPage() {
             </div>
           </div>
 
-          <div className="campSection">
+          {/* <div className="campSection">
             <h3 className="sectionTitle">Featured Programs</h3> 
             <div className="campaignCards">
               <div className="campaignCard">
@@ -71,7 +71,7 @@ export default function OutreachPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="statsSection">
             <div>
@@ -110,8 +110,8 @@ export default function OutreachPage() {
                 We recognized that women and girls often face unfair treatment in education, employment, and even in making personal decisions about their bodies and futures. At Purple Pact, we focus on empowering girls by providing them with the knowledge and resources to make informed decisions. Whether it’s through education, mentorship, or sexual health awareness, we are committed to helping them navigate and overcome the obstacles they face.
               </p>
               <div className="btnPair">
-                <button className="primaryBtn">Learn More</button>
-                <button className="primaryBtn">Donate Now</button>
+                <a href="https://www.purplepact.org"><button className="primaryBtn">Learn More</button></a>
+                <a href="https://www.purplepact.org"><button className="primaryBtn">Donate Now</button></a>
               </div>
             </div>
             <div className="aboutImages">
@@ -120,7 +120,7 @@ export default function OutreachPage() {
             </div>
           </div>
 
-          <div className="campSection">
+          {/* <div className="campSection">
             <h3 className="sectionTitle">Featured Initiatives</h3>
             <div className="campaignCards">
               <div className="campaignCard">
@@ -145,7 +145,7 @@ export default function OutreachPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="statsSection">
             <div>

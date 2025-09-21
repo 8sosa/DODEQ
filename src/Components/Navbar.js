@@ -44,7 +44,7 @@ export default function NavBar() {
     { to: "/yvie-write-it", label: "Yvie Writes It", ariaLabel: "Yvie Writes It" },
     { to: "/yvie-is-an-engineer", label: "Yvie is an Engineer?", ariaLabel: "Yvie is an Engineer?" },
     { to: "/yvies-outreach", label: "Yvie’s Outreach", ariaLabel: "Yvie’s Outreach" },
-    { to: "/yvies-event", label: "Yvie’s Event", ariaLabel: "Yvie’s Event" },
+    // { to: "/yvies-event", label: "Yvie’s Event", ariaLabel: "Yvie’s Event" },
     { to: "/yvies-just-living", label: "Yvie’s Just Living", ariaLabel: "Yvie’s Just Living" },
     
     // { to: "/yvie-flexit", label: "Yvie Flex It", ariaLabel: "Yvie Flex It" },

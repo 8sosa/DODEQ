@@ -8,6 +8,7 @@ export const Recommendations = () => {
   const [shows, setShows] = useState({ allTime: [], current: [] });
   const [articles, setArticles] = useState([]);
   const [music, setMusic] = useState({ allTime: [], current: [] });
+  const currentMonth = new Date().toLocaleString("default", { month: "long" });
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -57,10 +58,11 @@ export const Recommendations = () => {
     fetchContent();
   }, []);
 
+
   return (
     <section className="recMain">
       <p className="recTitle inter">My recommendations for the month</p>
-      <h2 className="recMonth altMont">Here lies July...</h2>
+      <h2 className="recMonth altMont">Here lies {currentMonth}...</h2>
 
       <div className="recommendations">
         {/* Shows Section */}

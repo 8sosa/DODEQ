@@ -1,6 +1,6 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import HeroBg from "../Images/heros/living.jpeg"
+import HeroBg from "../Images/heros/living.png";
 import { HeroSection } from "../Components/Hero";
 import { Recommendations } from "../Components/Living/recommendations";
 import { BookCarousel } from "../Components/Living/BookCarousel";
