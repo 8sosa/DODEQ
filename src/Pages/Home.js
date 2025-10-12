@@ -17,7 +17,7 @@ export default function Home () {
         <div className="homeHero">
             <Container className="homeHeroContainer">
                 <h1 className="aladin white">Yvie|DODEQ</h1>
-                <p className="baka">LIVE. WORK. INSPIRE</p>
+                <p className="mont">LIVE. WORK. INSPIRE</p>
             </Container>
         </div>
         <div className="homeAbout">
@@ -25,13 +25,6 @@ export default function Home () {
                 <h1>Meet Yvie</h1>
                 <p className="altMont">Hi! My name is Yvonne Amaria and my purpose is to inspire and build communities, promoting cultural preservation and expression in every form. Join me on my little adventures as we navigate the world and challenge ourselves to live, work towards a purpose, and inspire with said purpose. Welcome and have fun on this side of the sphere!</p>
             </Container>
-        </div>
-        <div className="homeEng">
-          <h1 className="pb-5">YVIE's an Engineer</h1>
-          <div className="grid-container">
-            <img src={eng1} alt="Yvie Engineer" className="resume-photo"/>
-            <img src={eng2} alt="Yvie Engineer" className="resume-photo"/>
-          </div>
         </div>
         <div className="homeEvents">
             <h1 className="pb-5">YVIE STYLE IT</h1>
@@ -41,6 +34,13 @@ export default function Home () {
             <h1>YVIE WRITE IT</h1>
             <Posts />
             <a href="/yvie-write-it"><h4 className="mont">View More...</h4></a>
+        </div>
+        <div className="homeEng">
+          <h1 className="pb-5">YVIE'S AN ENGINEER</h1>
+          <div className="grid-container">
+            <img src={eng1} alt="Yvie Engineer" className="resume-photo"/>
+            <img src={eng2} alt="Yvie Engineer" className="resume-photo"/>
+          </div>
         </div>
         {/* <div className="homeEvents">
             <Eng />
@@ -75,7 +75,7 @@ export default function Home () {
         <div className="homeEvents">
             <h1>YVIE EVENTS</h1>
 
-            <p>No Upcoming Events...</p>
+            <h6 className="Mont">No Upcoming Events...</h6>
             {/* <div id="event" className="event-item fade-in-up p-5">
                 <div className="event-date">
                     <div className="month">JUN</div>

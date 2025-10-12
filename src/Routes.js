@@ -13,10 +13,12 @@ import Outreach from './Pages/Outreach'
 import Events from './Pages/Events'
 import Archive from './Pages/Archive'
 import About from './Pages/About'
+import ScrollToTop from './Components/ScrollToTop'
 
 export default function SuaRoutes() {
     return (
         <Router>
+            <ScrollToTop />
             <div className="wrapper">
                 <Navbar />
                     <div className="content">

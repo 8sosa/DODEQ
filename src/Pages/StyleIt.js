@@ -25,7 +25,7 @@ export default function StyleIt() {
         setCollections(mapped);
         setLoading(false);
 
-        console.log("✅ Collections from Contentful:", mapped);
+        // console.log("✅ Collections from Contentful:", mapped);
       } catch (err) {
         console.error("❌ Error fetching collections:", err);
       }

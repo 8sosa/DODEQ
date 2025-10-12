@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Carousel.css";
 import { client } from "../lib/Contentful";
 
 export default function HomeLivingCarousel() {
   const [items, setItems] = useState([]);
+  const trackRef = useRef(null);
 
   useEffect(() => {
     const fetchContent = async () => {
@@ -39,7 +40,6 @@ export default function HomeLivingCarousel() {
         ];
 
         setItems(mapped);
-        console.log(mapped);
       } catch (err) {
         console.error("Error fetching content:", err);
       }
@@ -48,29 +48,49 @@ export default function HomeLivingCarousel() {
     fetchContent();
   }, []);
 
-  return (
+  // Wheel -> horizontal scroll for small screens / touchpads
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
 
+    function onWheel(e) {
+      // only transform wheel to horizontal scroll on narrower screens
+      if (window.innerWidth <= 1024) {
+        // prevent default vertical scroll
+        e.preventDefault();
+        track.scrollLeft += e.deltaY;
+      }
+    }
+
+    // add non-passive listener so we can call preventDefault
+    track.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      track.removeEventListener("wheel", onWheel);
+    };
+  }, []);
+
+  return (
     <>
-        <section className="Recomendations">
-            <h1 className="Mont">Some Recomendations...</h1>
-            <div className="carousel">
-                <div className="slider-track1">
-                    {items.map((item, i) => (
-                    <div key={i} className="carousel-item">
-                        <img
-                        src={item.image}
-                        alt={item.title}
-                        className="carousel-image"
-                        />
-                        <div className="carousel-caption">
-                            <h3>{item.title}</h3>
-                            <p>{item.type}</p>
-                        </div>
-                    </div>
-                    ))}
+      <section className="Recomendations">
+        <h1 className="Mont">YVIE'S JUST LIVING</h1>
+        <h6 className="Mont">Some Recomendations...</h6>
+
+        <div className="carousel">
+          {/* give the scroll container a ref */}
+          <div className="slider-track1" ref={trackRef}>
+            {items.map((item, i) => (
+              <div key={i} className="carousel-item">
+                <img src={item.image} alt={item.title} className="carousel-image" />
+                <div className="carousel-caption">
+                  <h3>{item.title}</h3>
+                  <p>{item.type}</p>
                 </div>
-            </div>
-        </section>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

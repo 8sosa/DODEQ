@@ -31,13 +31,15 @@ export default function HomeCarousel() {
     <div className="carousel">
       <div className="slider-track">
         {images.map((img, i) => (
-          <div key={i} className="carousel-item">
-            <img
-              src={img.url}
-              alt={img.alt}
-              className="carousel-image"
-            />
-          </div>
+          <a href="/yvie-style-it" key={i}>
+            <div className="carousel-item">
+              <img
+                src={img.url}
+                alt={img.alt}
+                className="carousel-image"
+              />
+            </div>
+          </a>
         ))}
       </div>
     </div>
