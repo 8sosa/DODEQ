@@ -1,6 +1,8 @@
 .carousel {
   padding: 1rem;
-  overflow: hidden;
+  overflow-x: auto;        /* ✅ allow horizontal scrolling */
+  overflow-y: hidden;      /* keep vertical overflow hidden */
+  -webkit-overflow-scrolling: touch; /* ✅ smooth touch scroll on iOS */
   width: 100%;
   background: #fefefe;
   border-radius: 10px;
