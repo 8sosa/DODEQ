@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Spinner, Image } from "react-bootstrap";
+import { Row, Col, Spinner } from "react-bootstrap";
 import { client } from "../lib/Contentful";
 
 export default function Personnel() {
@@ -32,20 +32,10 @@ export default function Personnel() {
         ) : (
           <Row lg={4}>
             {people.map((person, index) => {
-              const { name, role, instagram, twitter, linkedIn, image } = person.fields;
+              const { name, role, instagram, twitter, linkedIn } = person.fields;
               return (
                 <Col key={index} className="mb-5">
                   <div className="team-card text-center">
-                    {image && (
-                      <Image
-                        src={image.fields.file.url}
-                        alt={name}
-                        roundedCircle
-                        fluid
-                        className="mb-3"
-                        style={{ width: "150px", height: "150px", objectFit: "cover" }}
-                      />
-                    )}
                     <h4 className="namePersonnel">{name}</h4>
                     <p className="namePersonnel">{role}</p>
                     <div className="social-links">

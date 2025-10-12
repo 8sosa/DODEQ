@@ -17,7 +17,7 @@ export default function Home () {
         <div className="homeHero">
             <Container className="homeHeroContainer">
                 <h1 className="aladin white">Yvie|DODEQ</h1>
-                <p className="mont">LIVE. WORK. INSPIRE</p>
+                <p className="baka">LIVE. WORK. INSPIRE</p>
             </Container>
         </div>
         <div className="homeAbout">

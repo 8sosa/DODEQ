@@ -125,8 +125,9 @@ padding: 8px; /* equal spacing around each image */
     padding: 1rem;
 }
 .homeHeroContainer p {
-    background-color: #ff00ff5c;
     border-radius: 3rem;
+    font-weight: 800;
+    font-size: 4rem;
     padding: 1rem;
 }
 /* --- Responsive Adjustments --- */

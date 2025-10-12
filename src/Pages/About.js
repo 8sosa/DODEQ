@@ -11,6 +11,49 @@ import Personnel from "../Components/TeamGrid";
 import Orgs from "../Components/Org";
 
 export default function About () {
+  const models = [
+    "@atlas_studios",
+    "@monteee",
+    "@kjensen_",
+    "@prxis",
+    "@simplynadia",
+    "@andrea.redz",
+    "@ashh.wipe",
+    "@berithayes",
+    "@cass_somethin.else",
+    "@CreativeLenstudios",
+    "@d.a.s_fotograph",
+    "@detroitmade_zo",
+    "@drewvicious",
+    "@elliengassa",
+    "@emily.spitler",
+    "@goddess.merline",
+    "@griotakan",
+    "@ixchel0330",
+    "@imaan.mr",
+    "@janaexfawn",
+    "@jenn.u.n",
+    "@jermaine.ervin2",
+    "@justme.shar",
+    "@kapturaxkass",
+    "@lady.shalay",
+    "@laladanielleofficial",
+    "@lucia_f4rah",
+    "@majex.made.this",
+    "@modelbymiciah",
+    "@mykaleidoscope_world",
+    "@natalierue",
+    "@niresenoj_",
+    "@poolside.chacos",
+    "@risefashionevents",
+    "@tiramisruu",
+    "@trillpapishay_",
+    "@txprettyjass",
+    "@vicsueiro",
+    "@yelirrrrrrrr",
+    "@zenobiathegreat",
+  ];
+
   return (
     <>
         <div className="homeHero">
@@ -52,6 +95,22 @@ export default function About () {
             <Container className="homeAboutContainer altMont">
                 <h1>Credit and Appreciation</h1>
                 <p>Our work would not be possible without the support of organizations we collaborate with, artists and individuals we have worked with, those we have featured, and the continued partnerships we have formed. Listed are those that allow us to stand in our mission:</p>
+                <ul className="models-list">
+                  {models.map((model, index) => {
+                    const username = model.replace("@", "");
+                    return (
+                      <li key={index}>
+                        <a
+                          href={`https://www.instagram.com/${username}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {model}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
                 <Orgs />
                 <Personnel />
             </Container>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Modal, Button, Image } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import { client } from "../lib/Contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [activePost, setActivePost] = useState(null);
+  // const [showModal, setShowModal] = useState(false);
+  // const [activePost, setActivePost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,35 +20,43 @@ export default function Posts() {
       .catch(console.error);
   }, []);
 
-  useEffect(() => {
-    if (!loading && posts.length > 0) {
-      const hash = window.location.hash.replace("#", "");
-      if (hash) {
-        const targetPost = posts.find((post) => post.sys.id === hash);
-        if (targetPost) {
-          setActivePost(targetPost);
-          setShowModal(true);
-          // optional: scroll into view
-          document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    }
-  }, [loading, posts]);
+  if (loading) {
+    return (
+      <>
+        <h1>loading</h1>
+      </>
+    )
+  }
 
-  const handleReadMore = (post) => {
-    setActivePost(post);
-    setShowModal(true);
-  };
+  // useEffect(() => {
+  //   if (!loading && posts.length > 0) {
+  //     const hash = window.location.hash.replace("#", "");
+  //     if (hash) {
+  //       const targetPost = posts.find((post) => post.sys.id === hash);
+  //       if (targetPost) {
+  //         setActivePost(targetPost);
+  //         setShowModal(true);
+  //         // optional: scroll into view
+  //         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+  //       }
+  //     }
+  //   }
+  // }, [loading, posts]);
 
-  const handleClose = () => {
-    setShowModal(false);
-    setActivePost(null);
-  };
+  // const handleReadMore = (post) => {
+  //   setActivePost(post);
+  //   setShowModal(true);
+  // };
+
+  // const handleClose = () => {
+  //   setShowModal(false);
+  //   setActivePost(null);
+  // };
 
   return (
     <>
       {/* MODAL */}
-      <Modal show={showModal} onHide={handleClose} size="lg">
+      {/* <Modal show={showModal} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>{activePost?.fields.title}</Modal.Title>
         </Modal.Header>
@@ -77,7 +85,7 @@ export default function Posts() {
             Close
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
       {/* POSTS LIST */}
       <h1 className="sectionHeader">Posts</h1>
@@ -105,7 +113,8 @@ export default function Posts() {
                   <p>{preview}</p>
                   <Button
                     className="btn-custom"
-                    onClick={() => handleReadMore(post)}
+                    href="/yvie-write-it"
+                    // onClick={() => handleReadMore(post)}
                   >
                     read more
                   </Button>

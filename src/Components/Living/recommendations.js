@@ -69,7 +69,7 @@ export const Recommendations = () => {
         <div className="moviesRecs Inter" id="movies">
         {shows.current.length > 0 && (
           <>
-            <h3>Movies & Shows (Current)</h3>
+            <h3>Yvie's currently watching...</h3>
             <div className="moviesRecsBox">
               {shows.current.map((show, idx) => (
                 <div className="movieRec" key={idx}>
@@ -137,7 +137,7 @@ export const Recommendations = () => {
 
         {/* Music Section */}
         <div id="Music">
-          <h3>Music (Current)</h3>
+          <h3>Yvie's currently listening to...</h3>
           <div className="musicRecs">
             {music.current.map((track, idx) => (
               <div className="musicRec" key={idx}>
