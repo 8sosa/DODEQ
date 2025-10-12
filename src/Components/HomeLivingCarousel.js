@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import "./Carousel.css";
+import "./Living/Carousel.css";
 import { client } from "../lib/Contentful";
 
 export default function HomeLivingCarousel() {
@@ -76,7 +76,7 @@ export default function HomeLivingCarousel() {
         <h1 className="Mont">YVIE'S JUST LIVING</h1>
         <h6 className="Mont">Some Recomendations...</h6>
 
-        <div className="carousel">
+        <div className="carousell">
           {/* give the scroll container a ref */}
           <div className="slider-track1" ref={trackRef}>
             {items.map((item, i) => (

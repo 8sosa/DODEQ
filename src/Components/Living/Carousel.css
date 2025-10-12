@@ -1,4 +1,4 @@
-.carousel {
+.carousell {
   padding: 1rem;
   overflow-x: auto;        /* ✅ allow horizontal scrolling */
   overflow-y: hidden;      /* keep vertical overflow hidden */
@@ -9,8 +9,8 @@
   position: relative;
 }
 
-.carousel::before,
-.carousel::after {
+.carousell::before,
+.carousell::after {
   content: "";
   position: absolute;
   top: 0;
@@ -20,12 +20,12 @@
   pointer-events: none;
 }
 
-.carousel::before {
+.carousell::before {
   left: 0;
   background: linear-gradient(to right, #fefefe81 0%, transparent 100%);
 }
 
-.carousel::after {
+.carousell::after {
   right: 0;
   background: linear-gradient(to left, #fefefe81 0%, transparent 100%);
 }
