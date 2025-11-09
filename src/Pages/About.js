@@ -16,7 +16,7 @@ export default function About () {
     "@monteee",
     "@kjensen_",
     "@prxis",
-    "@simplynadia",
+    "@_simplynadia",
     "@andrea.redz",
     "@ashh.wipe",
     "@berithayes",
