@@ -6,8 +6,8 @@ import { documentToPlainTextString } from "@contentful/rich-text-plain-text-rend
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
-  // const [showModal, setShowModal] = useState(false);
-  // const [activePost, setActivePost] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [activePost, setActivePost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
