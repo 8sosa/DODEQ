@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Button } from "react-bootstrap";
 import { client } from "../lib/Contentful";
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
 
 export default function Posts() {
@@ -101,7 +101,7 @@ export default function Posts() {
                 : plainText;
 
             return (
-              <Col key={index} className="mb-5" id={post.sys.id}>
+              <Col key={post.sys.id} className="mb-5" id={post.sys.id}>
                 <div className="blog-post">
                   {post.fields.blogPostCover && (
                     <img
@@ -113,7 +113,7 @@ export default function Posts() {
                   <p>{preview}</p>
                   <Button
                     className="btn-custom"
-                    href="/yvie-write-it"
+                    // href="/yvie-write-it"
                     onClick={() => handleReadMore(post)}
                   >
                     read more
