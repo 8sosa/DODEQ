@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row, Button, Modal, Image, Spinner } from "react-bootstrap";
 import { client } from "../lib/Contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
@@ -10,59 +10,62 @@ export default function Posts() {
   const [activePost, setActivePost] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // 1. Optimized Fetch with async/await and ordering
   useEffect(() => {
-    client
-      .getEntries({ content_type: "blogPost", order: "-sys.createdAt" })
-      .then((response) => {
+    const fetchPosts = async () => {
+      try {
+        const response = await client.getEntries({
+          content_type: "blogPost",
+          order: "-sys.createdAt",
+        });
         setPosts(response.items);
+      } catch (error) {
+        console.error("Error fetching blog posts:", error);
+      } finally {
         setLoading(false);
-      })
-      .catch(console.error);
+      }
+    };
+    fetchPosts();
   }, []);
 
-  if (loading) {
-    return (
-      <>
-        <h1>loading</h1>
-      </>
-    )
-  }
-
+  // 2. Deep Linking (Hash handling)
   useEffect(() => {
     if (!loading && posts.length > 0) {
-       const hash = window.location.hash.replace("#", "");
-       if (hash) {
-         const targetPost = posts.find((post) => post.sys.id === hash);
-         if (targetPost) {
-           setActivePost(targetPost);
-           setShowModal(true);
-           // optional: scroll into view
-  //         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-         }
-       }
-     }
-   }, [loading, posts]);
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        const targetPost = posts.find((post) => post.sys.id === hash);
+        if (targetPost) {
+          setActivePost(targetPost);
+          setShowModal(true);
+          // Optional: ensure the element is scrolled into view in the background
+          setTimeout(() => {
+             document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      }
+    }
+  }, [loading, posts]);
 
-   const handleReadMore = (post) => {
-     setActivePost(post);
-     setShowModal(true);
-    };
+  const handleReadMore = (post) => {
+    setActivePost(post);
+    setShowModal(true);
+  };
 
   const handleClose = () => {
-     setShowModal(false);
-     setActivePost(null);
-   };
+    setShowModal(false);
+    setActivePost(null);
+  };
 
   return (
     <>
       {/* MODAL */}
-       <Modal show={showModal} onHide={handleClose} size="lg">
+      <Modal show={showModal} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>{activePost?.fields.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body
           style={{
-            maxHeight: "60vh",
+            maxHeight: "70vh",
             overflowY: "auto",
             whiteSpace: "pre-wrap",
           }}
@@ -70,18 +73,18 @@ export default function Posts() {
           {activePost?.fields.blogPostCover && (
             <Image
               src={activePost.fields.blogPostCover.fields.file.url}
-              alt="cover"
+              alt={activePost?.fields.title || "cover"}
               fluid
-              className="m-2"
+              className="mb-3 rounded"
             />
           )}
-          <div>
+          <div className="post-content-container">
             {activePost?.fields.blogPostContent &&
               documentToReactComponents(activePost.fields.blogPostContent)}
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="outline-secondary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
@@ -90,39 +93,45 @@ export default function Posts() {
       {/* POSTS LIST */}
       <h1 className="sectionHeader">Posts</h1>
       <div className="container section" id="blogs">
-        <Row lg={4}>
-          {posts.map((post, index) => {
-            const plainText = documentToPlainTextString(
-              post.fields.blogPostContent
-            );
-            const preview =
-              plainText.length > 120
-                ? plainText.substring(0, 120) + "..."
-                : plainText;
+        {loading ? (
+          <div className="d-flex justify-content-center py-5">
+            <Spinner animation="border" role="status" variant="primary">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        ) : (
+          <Row lg={4} md={2} xs={1}>
+            {posts.map((post) => {
+              const plainText = documentToPlainTextString(post.fields.blogPostContent);
+              const preview =
+                plainText.length > 120
+                  ? plainText.substring(0, 120) + "..."
+                  : plainText;
 
-            return (
-              <Col key={post.sys.id} className="mb-5" id={post.sys.id}>
-                <div className="blog-post">
-                  {post.fields.blogPostCover && (
-                    <img
-                      src={post.fields.blogPostCover.fields.file.url}
-                      alt={post.fields.title}
-                    />
-                  )}
-                  <h4>{post.fields.title}</h4>
-                  <p>{preview}</p>
-                  <Button
-                    className="btn-custom"
-                    // href="/yvie-write-it"
-                    onClick={() => handleReadMore(post)}
-                  >
-                    read more
-                  </Button>
-                </div>
-              </Col>
-            );
-          })}
-        </Row>
+              return (
+                <Col key={post.sys.id} className="mb-5" id={post.sys.id}>
+                  <div className="blog-post h-100 shadow-sm p-3 rounded">
+                    {post.fields.blogPostCover && (
+                      <img
+                        src={post.fields.blogPostCover.fields.file.url}
+                        alt={post.fields.title}
+                        className="img-fluid mb-3 rounded"
+                      />
+                    )}
+                    <h4>{post.fields.title}</h4>
+                    <p className="text-muted small">{preview}</p>
+                    <Button
+                      className="btn-custom mt-auto"
+                      onClick={() => handleReadMore(post)}
+                    >
+                      read more
+                    </Button>
+                  </div>
+                </Col>
+              );
+            })}
+          </Row>
+        )}
       </div>
     </>
   );
