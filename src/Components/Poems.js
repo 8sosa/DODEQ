@@ -68,30 +68,81 @@ export default function Poems() {
   return (
     <>
       {/* Modal for full poem */}
-      <Modal show={showModal} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>{activePoem?.fields?.title}</Modal.Title>
+      <Modal 
+        show={showModal} 
+        onHide={handleClose} 
+        size="lg" 
+        centered
+        dialogClassName="modern-modal"
+      >
+        {/* Header with improved spacing and typography */}
+        <Modal.Header closeButton className="border-0 pt-4 px-4 pb-2">
+          <div className="w-100 mt-2">
+            <Modal.Title className="fs-2 fw-bold text-dark lh-sm">
+              {activePoem?.fields?.title}
+            </Modal.Title>
+            {activePoem?.sys?.createdAt && (
+              <div className="text-muted small mt-2">
+                {new Date(activePoem.sys.createdAt).toLocaleDateString(undefined, {
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </div>
+            )}
+          </div>
         </Modal.Header>
-        <Modal.Body
-          style={{
-            maxHeight: "60vh",
-            overflowY: "auto",
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {activePoem?.fields?.poemCover && (
+
+        {/* Hero Image flush with modal edges */}
+        {activePoem?.fields?.poemCover && (
+          <div className="px-1">
             <Image
               src={activePoem.fields.poemCover.fields.file.url}
               alt={activePoem.fields.title}
               fluid
-              className="mb-3"
+              className="rounded shadow-sm"
+              style={{ width: '100%', objectFit: 'cover', maxHeight: '350px' }}
             />
-          )}
-          <div>{documentToReactComponents(activePoem?.fields?.poemContent)}</div>
-          <Comments contentId={activePoem?.sys.id} contentType="poem" />
+          </div>
+        )}
+
+        <Modal.Body
+          className="px-4 pb-4 pt-3"
+          style={{
+            maxHeight: "60vh",
+            overflowY: "auto",
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#ccc transparent'
+          }}
+        >
+          {/* Poem Content with specialized literary styling */}
+          <div 
+            className="poem-content-container mb-5"
+            style={{ 
+              fontSize: "1.15rem", 
+              fontFamily: "'Georgia', 'Times New Roman', serif",
+              lineHeight: "1.8",
+              whiteSpace: "pre-wrap",
+              color: "#2d3748"
+            }}
+          >
+            {documentToReactComponents(activePoem?.fields?.poemContent)}
+          </div>
+
+          {/* Comments Section */}
+          <hr className="my-4 opacity-25" />
+          <div className="comments-wrapper">
+            <h5 className="fw-bold mb-3">Discussion</h5>
+            <Comments contentId={activePoem?.sys.id} contentType="poem" />
+          </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+
+        <Modal.Footer className="border-0 px-4 pb-4">
+          <Button 
+            variant="outline-secondary" 
+            onClick={handleClose}
+            className="rounded-pill px-4"
+          >
             Close
           </Button>
         </Modal.Footer>

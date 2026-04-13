@@ -72,3 +72,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Add to your App.css or index.css */
+
+/* Custom Scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
+.modern-modal .modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-modal .modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modern-modal .modal-body::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* slate-300 */
+  border-radius: 20px;
+}
+
+/* Typography styles for Contentful Rich Text output */
+.post-content p {
+  margin-bottom: 1.5rem; /* crucial spacing between paragraphs */
+  color: #1e293b; /* slate-800 */
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #0f172a; /* slate-900 */
+}
+
+.post-content ul, .post-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+}

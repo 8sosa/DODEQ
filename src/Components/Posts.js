@@ -10,6 +10,12 @@ export default function Posts() {
   const [activePost, setActivePost] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   // 1. Optimized Fetch with async/await and ordering
   useEffect(() => {
     const fetchPosts = async () => {
@@ -59,32 +65,74 @@ export default function Posts() {
   return (
     <>
       {/* MODAL */}
-      <Modal show={showModal} onHide={handleClose} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>{activePost?.fields.title}</Modal.Title>
+      <Modal
+        show={showModal}
+        onHide={handleClose}
+        size="lg"
+        centered
+        dialogClassName="modern-modal" // Custom class for external styling if needed
+      >
+        {/* Modern Header: Removed border, adjusted padding */}
+        <Modal.Header closeButton className="border-0 pt-4 px-4 pb-2">
+          <div className="w-100 mt-2">
+            <Modal.Title className="fs-2 fw-bold text-dark lh-sm">
+              {activePost?.fields.title}
+            </Modal.Title>
+            
+            {/* Optional: Add Metadata (Date) */}
+            {activePost?.sys?.createdAt && (
+              <div className="text-muted small mt-2">
+                Published {formatDate(activePost.sys.createdAt)}
+              </div>
+            )}
+          </div>
         </Modal.Header>
-        <Modal.Body
-          style={{
-            maxHeight: "70vh",
-            overflowY: "auto",
-            whiteSpace: "pre-wrap",
-          }}
-        >
-          {activePost?.fields.blogPostCover && (
+
+        {/* Cover Image: Placed before Body so it sits flush with the edges */}
+        {activePost?.fields.blogPostCover && (
+          <div className="modal-hero-image px-1"> {/* Subtle padding keeps it neat */}
             <Image
               src={activePost.fields.blogPostCover.fields.file.url}
               alt={activePost?.fields.title || "cover"}
               fluid
-              className="mb-3 rounded"
+              className="rounded shadow-sm"
+              style={{ width: '100%', objectFit: 'cover', maxHeight: '400px' }}
             />
-          )}
-          <div className="post-content-container">
+          </div>
+        )}
+
+        {/* Modern Body: Refined spacing and typography */}
+        <Modal.Body
+          className="px-4 pb-4 pt-3"
+          style={{
+            maxHeight: "65vh",
+            overflowY: "auto",
+            /* Custom scrollbar styling (works in webkit browsers) */
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#ccc transparent'
+          }}
+        >
+          {/* Use a wrapper class to apply CSS styles to the rich text output */}
+          <div 
+            className="post-content lh-base text-dark" 
+            style={{ 
+              fontSize: "1.1rem", 
+              fontFamily: 'Georgia, serif', /* Good for readability */
+              whiteSpace: "pre-wrap"
+            }}
+          >
             {activePost?.fields.blogPostContent &&
               documentToReactComponents(activePost.fields.blogPostContent)}
           </div>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="outline-secondary" onClick={handleClose}>
+
+        {/* Modern Footer: Clean and minimal */}
+        <Modal.Footer className="border-0 px-4 pb-4 pt-2">
+          <Button 
+            variant="outline-secondary" 
+            onClick={handleClose} 
+            className="px-4 rounded-pill"
+          >
             Close
           </Button>
         </Modal.Footer>

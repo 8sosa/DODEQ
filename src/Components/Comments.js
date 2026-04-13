@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaPaperPlane } from "react-icons/fa";
+import { Form, Button, Spinner } from "react-bootstrap";
 import { getSessionId } from "../utils/session";
 
-const API_BASE = "http://localhost:4000/api"; // change to deployed backend URL
+const API_BASE = "http://localhost:4000/api";
 
 export default function Comments({ contentId, contentType }) {
   const [comments, setComments] = useState([]);
   const [name, setName] = useState("");
   const [commentText, setCommentText] = useState("");
   const [loading, setLoading] = useState(true);
-
   const [likes, setLikes] = useState(0);
   const [liked, setLiked] = useState(false);
 
-  const sessionId = getSessionId(); // replace with real session/user id
+  const sessionId = getSessionId();
 
-  // Fetch comments + likes
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +34,6 @@ export default function Comments({ contentId, contentType }) {
     fetchData();
   }, [contentId]);
 
-  // Submit new comment
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!commentText.trim()) return;
@@ -47,7 +45,6 @@ export default function Comments({ contentId, contentType }) {
         name: name || "Anonymous",
         commentText,
       });
-
       setComments([res.data, ...comments]);
       setCommentText("");
     } catch (err) {
@@ -55,21 +52,14 @@ export default function Comments({ contentId, contentType }) {
     }
   };
 
-  // Toggle like for post
   const toggleLike = async () => {
     try {
       if (liked) {
-        await axios.delete(`${API_BASE}/likes/`, {
-          data: { contentId, sessionId },
-        });
+        await axios.delete(`${API_BASE}/likes/`, { data: { contentId, sessionId } });
         setLiked(false);
         setLikes((prev) => prev - 1);
       } else {
-        await axios.post(`${API_BASE}/likes/`, {
-          contentId,
-          contentType,
-          sessionId,
-        });
+        await axios.post(`${API_BASE}/likes/`, { contentId, contentType, sessionId });
         setLiked(true);
         setLikes((prev) => prev + 1);
       }
@@ -79,66 +69,99 @@ export default function Comments({ contentId, contentType }) {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4 bg-white rounded-lg shadow-sm">
-      {/* Like Button for Post */}
-      <div className="flex items-center justify-between mb-6">
+    <div className="comments-section mt-5 px-1">
+      {/* Engagement Bar: Clean and proportional */}
+      <div className="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
         <button
           onClick={toggleLike}
-          className="flex items-center space-x-2 text-red-500 hover:scale-110 transition-transform"
+          className="btn btn-link p-0 border-0 text-decoration-none d-flex align-items-center transition-all"
+          style={{ transition: '0.2s ease' }}
         >
-          {liked ? <FaHeart className="text-red-600 text-xl" /> : <FaRegHeart className="text-xl" />}
-          <span className="text-sm text-gray-700">{likes}</span>
+          {liked ? (
+            <FaHeart className="text-danger fs-5" />
+          ) : (
+            <FaRegHeart className="text-secondary fs-5" />
+          )}
+          <span className="ms-2 fw-bold text-dark" style={{ fontSize: '0.9rem' }}>
+            {likes} {likes === 1 ? 'like' : 'likes'}
+          </span>
         </button>
+        <span className="text-muted" style={{ fontSize: '0.85rem' }}>
+          {comments.length} Comments
+        </span>
       </div>
 
-      {/* Comment Form */}
-        <h3 className="text-lg font-semibold">Comments</h3>
-      <form
-        onSubmit={handleSubmit}
-        className="d-flex flex-col gap-2"
-      >
-        <input
-          type="text"
-          placeholder="Your name (optional)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="flex-1 bg-transparent text-sm placeholder-gray-400 focus:outline-none"
-        />
-        <textarea
-          placeholder="Add a comment..."
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-          required
-          className="flex-1 bg-transparent resize-none text-sm placeholder-gray-400 focus:outline-none"
-          rows={1}
-        />
-        <button
-          type="submit"
-          disabled={!commentText.trim()}
-          className={`text-blue-500 text-sm font-semibold ${
-            !commentText.trim() ? "opacity-50 cursor-default" : "hover:text-blue-600"
-          }`}
-        >
-          Post
-        </button>
-      </form>
+      {/* Refined Input Area */}
+      <div className="mb-5 p-4 bg-light rounded-4 shadow-sm border">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
+            <Form.Control
+              type="text"
+              placeholder="Name (Optional)"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="border-0 bg-white mb-2 rounded-3 shadow-none p-2 ps-3"
+              style={{ fontSize: '0.85rem', fontWeight: '600' }}
+            />
+            <Form.Control
+              as="textarea"
+              rows={3}
+              placeholder="Share your thoughts..."
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)}
+              required
+              className="border-0 bg-white rounded-3 shadow-none p-3"
+              style={{ resize: 'none', fontSize: '0.95rem' }}
+            />
+          </Form.Group>
+          <div className="d-flex justify-content-end">
+            <Button 
+              type="submit" 
+              variant="primary" 
+              disabled={!commentText.trim()}
+              className="rounded-pill px-4 py-2 d-flex align-items-center gap-2 border-0 shadow-sm"
+              style={{ fontSize: '0.85rem', fontWeight: '600' }}
+            >
+              Post <FaPaperPlane size={12} />
+            </Button>
+          </div>
+        </Form>
+      </div>
 
-      {/* Comments List */}
-      {loading ? (
-        <p className="text-gray-500">Loading comments...</p>
-      ) : comments.length > 0 ? (
-        <ul className="space-y-4">
-          {comments.map((c) => (
-            <li key={c._id} className="text-sm">
-            <span className="font-semibold mr-2">{c.name || "Anonymous"}</span>
-            <span>{c.commentText}</span>
-            <div className="text-xs text-gray-400 mt-1">{new Date(c.createdAt).toLocaleString()}</div>
-          </li>          
-          ))}
-        </ul>
-      ) : (
-        <p className="text-gray-500">No comments yet. Be the first!</p>
-      )}
+      {/* Comments List: Modern Thread Style */}
+      <div className="comments-list">
+        {loading ? (
+          <div className="text-center py-4"><Spinner animation="border" size="sm" /></div>
+        ) : comments.length > 0 ? (
+          comments.map((c) => (
+            <div key={c._id} className="mb-4 d-flex align-items-start">
+              <div 
+                className="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3 flex-shrink-0 shadow-sm"
+                style={{ width: '36px', height: '36px', fontSize: '0.75rem' }}
+              >
+                {(c.name || "A").charAt(0).toUpperCase()}
+              </div>
+              <div className="flex-grow-1">
+                <div className="bg-white border p-3 rounded-4 shadow-sm d-inline-block" style={{ maxWidth: '100%' }}>
+                  <div className="fw-bold text-dark mb-1" style={{ fontSize: '0.8rem' }}>
+                    {c.name || "Anonymous"}
+                  </div>
+                  <div className="text-dark" style={{ fontSize: '0.9rem', lineHeight: '1.4' }}>
+                    {c.commentText}
+                  </div>
+                </div>
+                <div className="text-muted mt-1 ms-2" style={{ fontSize: '0.65rem' }}>
+                  {new Date(c.createdAt).toLocaleDateString()}
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="text-center py-4 opacity-50">
+            <p className="small mb-0 italic">No comments yet.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
