@@ -28,35 +28,35 @@ export default function Posts() {
     )
   }
 
-  // useEffect(() => {
-  //   if (!loading && posts.length > 0) {
-  //     const hash = window.location.hash.replace("#", "");
-  //     if (hash) {
-  //       const targetPost = posts.find((post) => post.sys.id === hash);
-  //       if (targetPost) {
-  //         setActivePost(targetPost);
-  //         setShowModal(true);
-  //         // optional: scroll into view
+  useEffect(() => {
+    if (!loading && posts.length > 0) {
+       const hash = window.location.hash.replace("#", "");
+       if (hash) {
+         const targetPost = posts.find((post) => post.sys.id === hash);
+         if (targetPost) {
+           setActivePost(targetPost);
+           setShowModal(true);
+           // optional: scroll into view
   //         document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
-  //       }
-  //     }
-  //   }
-  // }, [loading, posts]);
+         }
+       }
+     }
+   }, [loading, posts]);
 
-  // const handleReadMore = (post) => {
-  //   setActivePost(post);
-  //   setShowModal(true);
-  // };
+   const handleReadMore = (post) => {
+     setActivePost(post);
+     setShowModal(true);
+    };
 
-  // const handleClose = () => {
-  //   setShowModal(false);
-  //   setActivePost(null);
-  // };
+  const handleClose = () => {
+     setShowModal(false);
+     setActivePost(null);
+   };
 
   return (
     <>
       {/* MODAL */}
-      {/* <Modal show={showModal} onHide={handleClose} size="lg">
+       <Modal show={showModal} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>{activePost?.fields.title}</Modal.Title>
         </Modal.Header>
@@ -85,7 +85,7 @@ export default function Posts() {
             Close
           </Button>
         </Modal.Footer>
-      </Modal> */}
+      </Modal>
 
       {/* POSTS LIST */}
       <h1 className="sectionHeader">Posts</h1>
@@ -114,7 +114,7 @@ export default function Posts() {
                   <Button
                     className="btn-custom"
                     href="/yvie-write-it"
-                    // onClick={() => handleReadMore(post)}
+                    onClick={() => handleReadMore(post)}
                   >
                     read more
                   </Button>
